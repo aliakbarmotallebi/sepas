@@ -5,9 +5,9 @@
 @endsection
 
 @section('content')
-
+    <x-alert/>
     <!-- Comments Table-->
-    <x-dashboard.table title="لیست پیام های کاربران" >
+    <x-dashboard.table  title="لیست پیام های کاربران" >
         <x-slot name="header">
             <tr>
                 <th scope="col" class="px-6 py-3">
