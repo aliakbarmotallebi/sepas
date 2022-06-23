@@ -16,11 +16,12 @@ class MessageController extends Controller
     public function index()
     {
         $messages = Message::latest()->paginate(10);
-        return view('dashboard.messages.index',
+
+        return view(
+            'dashboard.messages.index',
             compact('messages')
         );
     }
-
 
     /**
      * Update the specified resource in storage.
@@ -43,6 +44,7 @@ class MessageController extends Controller
     public function destroy(Message $message)
     {
         $message->delete();
+
         return redirect(route('dashboard.messages.index'));
     }
 }

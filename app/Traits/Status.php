@@ -1,10 +1,12 @@
-<?php namespace App\Traits;
+<?php
 
-trait Status {
+namespace App\Traits;
 
-    static $PUBLISHED_STATUS   = 'PUBLISHED';
+trait Status
+{
+    public static $PUBLISHED_STATUS = 'PUBLISHED';
 
-    static $UNPUBLISHED_STATUS = 'UNPUBLISHED';
+    public static $UNPUBLISHED_STATUS = 'UNPUBLISHED';
 
     /**
      * @return bool

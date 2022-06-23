@@ -188,7 +188,6 @@ return [
         Hekmatinasser\Verta\Laravel\VertaServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
 
-
         /*
          * Application Service Providers...
          */

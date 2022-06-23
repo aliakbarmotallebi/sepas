@@ -1,10 +1,12 @@
-<?php namespace App\Traits;
+<?php
+
+namespace App\Traits;
 
 use Carbon\Carbon;
 use Hekmatinasser\Verta\Facades\Verta;
 
-trait Jalali {
-
+trait Jalali
+{
     /**
      * @return string
      */
@@ -13,7 +15,7 @@ trait Jalali {
         return verta($this->created_at);
     }
 
-        /**
+    /**
      * @return string
      */
     public function getAge()

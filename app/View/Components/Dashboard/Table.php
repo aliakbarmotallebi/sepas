@@ -19,7 +19,6 @@ class Table extends Component
         $this->title = $title;
     }
 
-
     /**
      * Get the view / contents that represent the component.
      *

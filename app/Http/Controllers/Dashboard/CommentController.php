@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use Illuminate\Http\Request;
 use App\Models\Comment;
+use Illuminate\Http\Request;
 
 class CommentController extends DashboardController
 {
@@ -15,11 +15,12 @@ class CommentController extends DashboardController
     public function index()
     {
         $comments = Comment::latest()->paginate(10);
-        return view('dashboard.comments.index',
+
+        return view(
+            'dashboard.comments.index',
             compact('comments')
         );
     }
-
 
     /**
      * Update the specified resource in storage.
