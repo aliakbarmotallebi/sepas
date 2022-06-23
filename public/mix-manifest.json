@@ -1,0 +1,13 @@
+{
+    "/javascripts/app.js": "/javascripts/app.js",
+    "/styles/security/styles.css": "/styles/security/styles.css",
+    "/styles/dashboard/styles.css": "/styles/dashboard/styles.css",
+    "/fonts/IRANSansX-Bold.woff": "/fonts/IRANSansX-Bold.woff",
+    "/fonts/IRANSansX-Bold.woff2": "/fonts/IRANSansX-Bold.woff2",
+    "/fonts/IRANSansX-Regular.woff": "/fonts/IRANSansX-Regular.woff",
+    "/fonts/IRANSansX-Regular.woff2": "/fonts/IRANSansX-Regular.woff2",
+    "/fonts/woff/IRANSansX-Bold.woff": "/fonts/woff/IRANSansX-Bold.woff",
+    "/fonts/woff/IRANSansX-Regular.woff": "/fonts/woff/IRANSansX-Regular.woff",
+    "/fonts/woff2/IRANSansX-Bold.woff2": "/fonts/woff2/IRANSansX-Bold.woff2",
+    "/fonts/woff2/IRANSansX-Regular.woff2": "/fonts/woff2/IRANSansX-Regular.woff2"
+}
