@@ -6,17 +6,20 @@ use Livewire\Component;
 
 class Delete extends Component
 {
-    public $deleteId = '';
+    public $entity;
 
-    public function setId($id)
+    public $url;
+
+    public function mount($entity, $url)
     {
-        $this->deleteId = $id;
+        $this->entity = $entity;
+        $this->url = $url;
     }
 
     public function remove()
     {
-        sleep(20);
-        dd('d');
+        $this->entity->delete();
+        return redirect($this->url);
     }
 
     public function render()

@@ -598,6 +598,10 @@ body{
   margin-left: 0.5rem;
   margin-right: 0.5rem;
 }
+.mx-3{
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+}
 .ml-1{
   margin-left: 0.25rem;
 }
@@ -999,6 +1003,12 @@ body{
 .border-r{
   border-right-width: 1px;
 }
+.border-r-2{
+  border-right-width: 2px;
+}
+.border-l-2{
+  border-left-width: 2px;
+}
 .border-dashed{
   border-style: dashed;
 }
@@ -1249,6 +1259,9 @@ body{
 }
 .pb-1{
   padding-bottom: 0.25rem;
+}
+.pl-2{
+  padding-left: 0.5rem;
 }
 .text-left{
   text-align: left;

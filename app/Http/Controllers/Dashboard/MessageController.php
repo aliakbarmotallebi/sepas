@@ -32,6 +32,7 @@ class MessageController extends DashboardController
     public function destroy(Message $message)
     {
         $message->delete();
+        
         alert()->info(
             'حذف',
             'با موفقیت حذف شد'
