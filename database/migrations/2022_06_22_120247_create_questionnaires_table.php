@@ -17,7 +17,7 @@ return new class extends Migration {
 
             $table->string('label');
 
-            $table->string('question');
+            $table->longText('question');
 
             $table->unsignedBigInteger('course_id');
             $table->foreign('course_id')

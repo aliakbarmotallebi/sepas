@@ -1,5 +1,19 @@
-<div class="fixed z-10 inset-0 overflow-y-auto" x-data={show:true}     x-show="show"
-@click="show=false">
+<div 
+    x-data="{ show:false }"
+    x-init="() => {
+        setTimeout(() => show = true, 500);
+        setTimeout(() => show = false, 5000);
+    }"
+    x-show="show" 
+    x-cloak
+    @click.away="show = false"
+    x-transition:enter="transform ease-out duration-300 transition"
+    x-transition:enter-start="translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-2"
+    x-transition:enter-end="translate-y-0 opacity-100 sm:translate-x-0"
+    x-transition:leave="transition ease-in duration-100"
+    x-transition:leave-start="opacity-100"
+    x-transition:leave-end="opacity-0"
+    class="fixed z-10 inset-0 overflow-y-auto">
     <div
       class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0"
     >
@@ -16,11 +30,23 @@
         <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
           <div class="sm:flex sm:items-start">
             <div
+            :class="{
+                'ring-green-100': message.type === 'success',
+                'ring-red-100': message.type === 'error',
+                'ring-blue-100': message.type === 'info',
+                'ring-yellow-100': message.type === 'warning',
+            }"
               class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10"
             >
               <!-- Heroicon name: exclamation -->
               <svg
-                class="h-6 w-6 text-red-600"
+              :class="{
+                'ring-green-500': message.type === 'success',
+                'ring-red-500': message.type === 'error',
+                'ring-blue-500': message.type === 'info',
+                'ring-yellow-500': message.type === 'warning',
+            }"
+                class="h-6 w-6"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -59,7 +85,8 @@
             <button
               type="button"
               class="inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-base leading-6 font-medium text-gray-700 shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5"
-            >
+              @click="show = false" 
+                >
               انصراف
             </button>
           </span>

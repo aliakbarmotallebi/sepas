@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Message;
 use Illuminate\Http\Request;
 
-class MessageController extends Controller
+class MessageController extends DashboardController
 {
     /**
      * Display a listing of the resource.
@@ -15,24 +15,11 @@ class MessageController extends Controller
      */
     public function index()
     {
-        $messages = Message::latest()->paginate(10);
-
+        $messages = Message::latest()->paginate(self::$MaxResult);
         return view(
             'dashboard.messages.index',
             compact('messages')
         );
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Message  $message
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Message $message)
-    {
-        //
     }
 
     /**
@@ -44,7 +31,10 @@ class MessageController extends Controller
     public function destroy(Message $message)
     {
         $message->delete();
-
+        alert()->info(
+            'حذف',
+            'با موفقیت حذف شد'
+        );
         return redirect(route('dashboard.messages.index'));
     }
 }

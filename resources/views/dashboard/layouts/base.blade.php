@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ asset('styles/dashboard/styles.css') }}">
 
     <title>@yield('title')</title>
+    @livewireStyles
 </head>
 <body>
     <div class="flex min-h-screen mx-auto border-x-2 border-indigo-50">
@@ -20,5 +21,7 @@
         </main>
     </div>
     <script src="{{ asset('javascripts/app.js') }}"></script>
+    @include('sweetalert::alert')
+    @livewireScripts
 </body>
 </html>

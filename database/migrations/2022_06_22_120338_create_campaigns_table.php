@@ -20,7 +20,7 @@ return new class extends Migration {
             $table->string('slug')
                 ->nullable();
 
-            $table->text('description');
+            $table->longText('description');
 
             $table->text('safir_name');
 

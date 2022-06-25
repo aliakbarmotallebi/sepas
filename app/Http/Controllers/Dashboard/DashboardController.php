@@ -8,4 +8,6 @@ use Illuminate\Http\Request;
 class DashboardController extends Controller
 {
     protected $theme = 'dashboard.';
+
+    protected static $MaxResult = 10;
 }

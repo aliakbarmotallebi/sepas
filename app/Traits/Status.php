@@ -23,4 +23,16 @@ trait Status
     {
         return (bool) ! $this->hasPublished();
     }
+
+    public function setPublished(): void
+    {
+        $this->status = self::$PUBLISHED_STATUS;
+        $this->save();
+    }
+
+    public function setUnPublished(): void
+    {
+        $this->status = self::$UNPUBLISHED_STATUS;
+        $this->save();
+    }
 }
