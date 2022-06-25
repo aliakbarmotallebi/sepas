@@ -27,7 +27,6 @@ Route::group([
         Route::resource('/messages', 'MessageController')
             ->only(['index']);
 
-        Route::resource('/products', 'PorductController')
-            ->only(['index']);
+        Route::resource('/products', 'PorductController');
     });
 });

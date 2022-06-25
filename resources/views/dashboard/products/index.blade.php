@@ -74,7 +74,7 @@
         </x-slot>
         <x-slot name="content">
             @foreach ($products as $product)
-                <tr class="bg-white border-b">
+                <tr class="bg-white border-b hover:bg-gray-100">
                     <td scope="row" class="px-6 py-4">
                        <img class="w-16 h-16 rounded-lg object-cover" src="{{ $product->getImageUrl() }}">
                     </td>
@@ -95,7 +95,7 @@
                     </td>
                     <td class="px-6 py-4">
                         <div class="flex text-center">
-                            <button type="button" class="ml-1 flex items-center p-2 text-xs font-medium text-gray-700 bg-white rounded-lg border border-gray-200 toggle-dark-state-example hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 focus:outline-none">
+                            <a href="{{ route('dashboard.products.edit', $product) }}" target="_blank" class="ml-1 flex items-center p-2 text-xs font-medium text-gray-700 bg-white rounded-lg border border-gray-200 toggle-dark-state-example hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 focus:outline-none">
                                 <svg
                                     class="w-4 h-4"
                                     viewBox="0 0 24 24"
@@ -108,7 +108,7 @@
                                     >
                                     <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z" />
                                     </svg>
-                            </button>
+                                </a>
                             <livewire:delete :entity="$product" :url="request()->fullUrl()"/>
                         </div>
                     </td>
