@@ -6,6 +6,13 @@ use Livewire\Component;
 
 class Delete extends Component
 {
+    public $deleteId = '';
+
+    public function setId($id)
+    {
+        $this->deleteId = $id;
+    }
+
     public function remove()
     {
         sleep(20);

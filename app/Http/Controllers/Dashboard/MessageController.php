@@ -16,6 +16,7 @@ class MessageController extends DashboardController
     public function index()
     {
         $messages = Message::latest()->paginate(self::$MaxResult);
+
         return view(
             'dashboard.messages.index',
             compact('messages')

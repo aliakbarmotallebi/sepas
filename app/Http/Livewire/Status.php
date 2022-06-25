@@ -18,9 +18,7 @@ class Status extends Component
         $this->entity->hasPublished() ?
         $this->entity->setUnPublished() :
         $this->entity->setPublished();
-
     }
-
 
     public function render()
     {
