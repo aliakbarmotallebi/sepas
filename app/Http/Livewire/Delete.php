@@ -19,6 +19,7 @@ class Delete extends Component
     public function remove()
     {
         $this->entity->delete();
+
         return redirect($this->url);
     }
 

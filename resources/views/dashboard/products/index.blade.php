@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.base')
 
 @section('title')
-    {{ __('Dashboard Messages')  }}
+    {{ __('Dashboard Products')  }}
 @endsection
 
 @section('content')
@@ -16,7 +16,7 @@
         </div>
         <div class="sm:space-y-0 space-y-4 text-right global-rtl">
             <h5 class="text-gray-500 mb-1.5 text-xs font-medium global-rtl">
-                تعداد پیام ها
+                تعداد محصولات
             </h5>
             <div class="text-gray-500 text-xs font-medium flex items-center global-rtl">
                 <div class="global-rtl">
@@ -38,22 +38,31 @@
 </div>
 
     <!-- Comments Table-->
-    <x-dashboard.table  title="لیست پیام های کاربران" >
+    <x-dashboard.table  title="لیست محصولات" >
         
         <div class="p-3">
-            {!! $messages->links('pagination::tailwind') !!}
+            {!! $products->links('pagination::tailwind') !!}
         </div>
 
         <x-slot name="header">
             <tr>
                 <th scope="col" class="px-6 py-3">
-                    نام و نام خانوادگی
+                    تصویر کاور
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    متن پیام
+                    عنوان
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    وضعیت پیام 
+                    توضیحات
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    قیمت
+                    <span class="text-gray-400 text-xs">
+                        (تومان) 
+                    </span>
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    وضعیت محصول 
                 </th>
                 <th scope="col" class="px-6 py-3">
                     تاریخ ایجاد
@@ -64,19 +73,25 @@
             </tr>
         </x-slot>
         <x-slot name="content">
-            @foreach ($messages as $message)
+            @foreach ($products as $product)
                 <tr class="bg-white border-b">
+                    <td scope="row" class="px-6 py-4">
+                       <img class="w-16 h-16 rounded-lg object-cover" src="{{ $product->getImageUrl() }}">
+                    </td>
                     <th class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                        {{ $message->fullname }}
+                        {{ $product->title }}
                     </th>
                     <td scope="row" class="px-6 py-4">
-                        {{ $message->text }}
-                    </td>
-                    <td class="px-6 py-4 text-center">
-                        <livewire:status :entity="$message" />
+                        {{ $product->body }}
                     </td>
                     <td scope="row" class="px-6 py-4">
-                        {{ $message->getAge() }}
+                        {{ $product->price }}
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        <livewire:status :entity="$product" />
+                    </td>
+                    <td scope="row" class="px-6 py-4">
+                        {{ $product->getCreatedAt() }}
                     </td>
                     <td class="px-6 py-4">
                         <div class="flex text-center">
@@ -94,7 +109,7 @@
                                     <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z" />
                                     </svg>
                             </button>
-                            <livewire:delete :entity="$message" :url="request()->fullUrl()"/>
+                            <livewire:delete :entity="$product" :url="request()->fullUrl()"/>
                         </div>
                     </td>
                 </tr>

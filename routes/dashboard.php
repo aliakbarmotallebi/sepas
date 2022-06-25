@@ -25,6 +25,9 @@ Route::group([
             ->only(['index', 'update', 'destroy']);
 
         Route::resource('/messages', 'MessageController')
-            ->only(['index', 'destroy']);
+            ->only(['index']);
+
+        Route::resource('/products', 'PorductController')
+            ->only(['index']);
     });
 });

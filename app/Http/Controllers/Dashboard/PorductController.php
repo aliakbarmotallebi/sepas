@@ -3,18 +3,24 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
+use App\Repositories\ProductRepository;
 use Illuminate\Http\Request;
 
-class PorductController extends Controller
+class PorductController extends DashboardController
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(ProductRepository $repository)
     {
-        //
+        $products = $repository->all();
+        return view(
+            $this->theme.'products.index',
+            compact('products')
+        );
     }
 
     /**

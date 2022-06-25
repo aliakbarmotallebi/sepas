@@ -22,21 +22,4 @@ class MessageController extends DashboardController
             compact('messages')
         );
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Message  $message
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Message $message)
-    {
-        $message->delete();
-        
-        alert()->info(
-            'حذف',
-            'با موفقیت حذف شد'
-        );
-        return redirect(route('dashboard.messages.index'));
-    }
 }

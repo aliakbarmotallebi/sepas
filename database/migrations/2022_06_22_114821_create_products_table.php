@@ -29,7 +29,7 @@ return new class extends Migration {
             $table->string('price');
 
             $table->integer('comments_count')
-                ->defualt(0);
+                ->default(0);
 
             $table->unsignedBigInteger('owner_id');
             $table->foreign('owner_id')
