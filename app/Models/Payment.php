@@ -11,19 +11,16 @@ class Payment extends Model
 {
     use HasFactory, Status, Jalali;
 
-
     public const PENDING_STATUS   = 'PENDING';
 
     public const REJECTED_STATUS  = 'REJECTED';
 
     public const COMPLETED_STATUS = 'COMPLETED';
 
-    
     protected $services = [
         'App\Models\Order' => 'خرید',
         'App\Models\Invoice' => 'تراکنش'
     ];
-
 
     protected const STATUS_NAME = [
         self::PENDING_STATUS => 'معلق',

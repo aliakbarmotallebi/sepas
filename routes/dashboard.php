@@ -30,6 +30,9 @@ Route::group([
         Route::get('/payments', 'PaymentController')
             ->name('payments.index');
 
+        Route::get('/transactions', 'TransactionController')
+            ->name('transactions.index');
+
         Route::resource('/messages', 'MessageController')
             ->only(['index']);
 
