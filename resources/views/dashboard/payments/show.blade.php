@@ -110,7 +110,7 @@
             @endforeach
                 <tr class="bg-gray-100">
                     <th colspan="2"  class="px-6 py-3 text-left font-bold">
-                        مبلغ قابل پرداخت
+                        قیمت قابل پرداخت
                         <span class="text-gray-400 text-xs">
                             (تومان) 
                         </span>

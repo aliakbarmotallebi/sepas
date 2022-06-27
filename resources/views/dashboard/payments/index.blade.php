@@ -46,10 +46,10 @@
         <x-slot name="header">
             <tr>
                 <th scope="col" class="px-6 py-3">
-                    شماره سفارش
+                    کدرهگیری
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    قیمت کل
+                    مبلغ پرداختی
                     <span class="text-gray-400 text-xs">
                         (تومان) 
                     </span>

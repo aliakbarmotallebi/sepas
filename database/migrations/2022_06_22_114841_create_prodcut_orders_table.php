@@ -12,13 +12,13 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('prodcut_orders', function (Blueprint $table) {
+        Schema::create('order_products', function (Blueprint $table) {
             $table->id();
 
             $table->string('price');
 
-            $table->unsignedBigInteger('prodcut_id');
-            $table->foreign('prodcut_id')
+            $table->unsignedBigInteger('product_id');
+            $table->foreign('product_id')
                     ->references('id')
                     ->on('products')
                     ->onDelete('cascade');
@@ -40,6 +40,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('prodcut_orders');
+        Schema::dropIfExists('order_products');
     }
 };
