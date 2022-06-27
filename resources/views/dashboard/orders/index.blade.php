@@ -46,6 +46,9 @@
         <x-slot name="header">
             <tr>
                 <th scope="col" class="px-6 py-3">
+                    #
+                </th>
+                <th scope="col" class="px-6 py-3">
                     شماره سفارش
                 </th>
                 <th scope="col" class="px-6 py-3">
@@ -74,6 +77,9 @@
         <x-slot name="content">
             @foreach ($orders as $order)
                 <tr class="bg-white border-b hover:bg-gray-100">
+                    <th class="text-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                        #{{ $order->id }}
+                    </th>
                     <th class="text-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                         {{ $order->order_no }}
                     </th>

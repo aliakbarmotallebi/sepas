@@ -25,5 +25,21 @@ class Order extends Model
     {
         return $this->hasMany(OrderProduct::class, 'order_id');
     }
+
+    public function payment()
+    {
+        return $this->morphOne(Payment::class, 'paymentable');
+    }
+
+    public function isPaid()
+    {
+        return $this->payment()->count() ?
+                $this->payment->isPaid() : false;
+    }
+
+    public function isUnpaid()
+    {
+       return !$this->isPaid();
+    }
     
 }

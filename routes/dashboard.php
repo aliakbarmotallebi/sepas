@@ -27,6 +27,9 @@ Route::group([
 
         Route::resource('/orders', 'OrderController');
 
+        Route::get('/payments', 'PaymentController')
+            ->name('payments.index');
+
         Route::resource('/messages', 'MessageController')
             ->only(['index']);
 
