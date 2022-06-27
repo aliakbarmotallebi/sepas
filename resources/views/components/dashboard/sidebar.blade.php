@@ -101,6 +101,13 @@
                 مدیریت محصولات
             </span>
         </a>
+        <a class=" flex items-center space-x-2 py-1  group hover:border-l-2 hover:border-l-indigo-700 hover:font-semibold " href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:stroke-indigo-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+
+            <span class="pr-2">
+                        مدیریت سفارشات
+                    </span>
+        </a>
         <a href="{{ route('dashboard.courses.index') }}" class=" flex items-center space-x-2 py-1  group hover:border-l-2 hover:border-l-indigo-700 hover:font-semibold " href="#">
             <svg class="h-5 w-5 group-hover:stroke-indigo-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
@@ -126,23 +133,7 @@
             </span>
         </a>
 
-        <a class=" flex items-center space-x-2 py-1  group hover:border-l-2 hover:border-l-indigo-700 hover:font-semibold " href="#">
-            <svg class="h-5 w-5 group-hover:stroke-indigo-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"></path>
-            </svg>
-            <span class="pr-2">
-                            مدیریت مقالات
-                        </span>
-        </a>
-        <a class=" flex items-center space-x-2 py-1  group hover:border-l-2 hover:border-l-indigo-700 hover:font-semibold " href="#">
-            <svg class="h-5 w-5 group-hover:stroke-indigo-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
 
-            </svg>
-            <span class="pr-2">
-                        مدیریت سفارشات
-                    </span>
-        </a>
         <a class=" flex items-center space-x-2 py-1  group hover:border-l-2 hover:border-l-indigo-700 hover:font-semibold " href="#">
             <svg class="h-5 w-5 group-hover:stroke-indigo-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>

@@ -12,4 +12,13 @@ class Evant extends Model
     protected $casts = [
         'schedule_at' => 'date:hh:mm',
     ];
+
+
+        /**
+     * Get all of the post's comments.
+     */
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable');
+    }
 }

@@ -29,19 +29,26 @@ class CommentController extends DashboardController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Comment $Comment)
+    public function show(Comment $comment)
     {
-        //
+        return view('dashboard.comments.show', 
+            compact('comment')
+        );
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Comment $Comment)
+    public function replyStore(Request $request, Comment $comment)
     {
-        //
+        $reply = new Comment;
+        $reply->message = $request->get('message');
+        $reply->owner()->associate($request->user());
+        $reply->parent_id = $comment->id;
+        $reply->status = Comment::$PUBLISHED_STATUS;
+
+        $model = $comment->commentable;
+        $model->comments()->save($reply);
+
+        return redirect()->route('dashboard.comments.index');
     }
+
+
 }

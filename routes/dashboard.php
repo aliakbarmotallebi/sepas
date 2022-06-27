@@ -18,10 +18,14 @@ Route::group([
 
         Route::resource('/users', 'UserController');
 
+        Route::resource('/comments', 'CommentController');
+
+        Route::post('/reply/{comment}', 'CommentController@replyStore')
+            ->name('comments.reply.store');
+
         Route::resource('/courses', 'CourseController');
 
-        Route::resource('/comments', 'CommentController')
-            ->only(['index', 'update', 'destroy']);
+        Route::resource('/orders', 'OrderController');
 
         Route::resource('/messages', 'MessageController')
             ->only(['index']);
