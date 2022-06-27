@@ -34,6 +34,16 @@ class UserRepository extends Repository
         return $this->model->latest()->paginate(self::MAX_RESULT);
     }
 
+    public function create(array $data)
+    {
+        return $this->model->create($data);
+    }
+
+    public function forceFill(array $data)
+    {
+        return $this->model->forceFill($data);
+    }
+
     public function find(string $id)
     {
         //

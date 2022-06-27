@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Models\User;
-use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
+use App\Repositories\UserRepository;
+use App\Http\Controllers\Dashboard\DashboardController;
 
 class UserController extends DashboardController
 {
@@ -37,7 +38,10 @@ class UserController extends DashboardController
      */
     public function create()
     {
-        //
+        $roles = resolve($this->repository->model())->getRoles();
+        return view('dashboard.users.create', 
+            compact('roles')
+        );
     }
 
     /**
@@ -48,18 +52,30 @@ class UserController extends DashboardController
      */
     public function store(Request $request)
     {
-        //
-    }
+        $this->validate($request, [
+            'username' => 'required',
+            'password' => 'min:6|required_with:password_confirmation|same:password_confirmation',
+            'password_confirmation' => 'min:6',
+            'role'     => 'required',
+        ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function show(User $user)
-    {
-        //
+        //$input = $request->except(['email', 'mobile']);
+
+        $user = resolve($this->repository->model());
+
+        $inputs = $request->except(['_token']);
+
+        $user = $this->repository->forceFill(array_merge(
+            $inputs,
+            $user->username($request->get('username'))
+        ));
+
+        $user->role = $request->get('role');
+        $user->save();
+
+        //alert
+
+        return redirect()->route('dashboard.users.index');
     }
 
     /**
@@ -70,7 +86,9 @@ class UserController extends DashboardController
      */
     public function edit(User $user)
     {
-        //
+        return view('dashboard.users.edit', 
+            compact('user')
+        );
     }
 
     /**
@@ -82,17 +100,22 @@ class UserController extends DashboardController
      */
     public function update(Request $request, User $user)
     {
-        //
+        $this->validate($request, [
+            'username' => 'required',
+            'role'     => 'required'
+        ]);
+
+        $inputs = $request->except(['_token', '_method']);
+
+        $user->forceFill(array_merge(
+            $inputs,
+            $user->username($request->get('username'))
+        ))->save();
+
+        //alert
+
+        return redirect()->route('dashboard.users.index');
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(User $user)
-    {
-        //
-    }
 }

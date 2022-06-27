@@ -56,6 +56,26 @@
                 مدیریت نظرات
             </span>
         </a>
+        <a href="{{ route('dashboard.users.index') }}" class=" flex items-center space-x-2 py-1  group hover:border-l-2 hover:border-l-indigo-700 hover:font-semibold">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 group-hover:stroke-indigo-700"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                >
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+            <span class="pr-2">
+                            مدیریت کاربران
+                        </span>
+        </a>
         <a href="{{ route('dashboard.messages.index') }}" class=" flex items-center space-x-2 py-1  group hover:border-l-2 hover:border-l-indigo-700 hover:font-semibold ">
             <svg
                 class="h-5 w-5 group-hover:stroke-indigo-700"
@@ -105,15 +125,7 @@
                 مدیریت تراکنش ها
             </span>
         </a>
-        <a class=" flex items-center space-x-2 py-1  group hover:border-l-2 hover:border-l-indigo-700 hover:font-semibold " href="#">
-            <svg class="h-5 w-5 group-hover:stroke-indigo-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2zM10 8.5a.5.5 0 11-1 0 .5.5 0 011 0zm5 5a.5.5 0 11-1 0 .5.5 0 011 0z"></path>
 
-            </svg>
-            <span class="pr-2">
-                            مدیریت کاربران
-                        </span>
-        </a>
         <a class=" flex items-center space-x-2 py-1  group hover:border-l-2 hover:border-l-indigo-700 hover:font-semibold " href="#">
             <svg class="h-5 w-5 group-hover:stroke-indigo-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"></path>

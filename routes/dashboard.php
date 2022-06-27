@@ -16,8 +16,7 @@ Route::group([
         Route::get('/', 'AdminController')
             ->name('index');
 
-        Route::get('/users', 'UserController@index')
-            ->name('users.index');
+        Route::resource('/users', 'UserController');
 
         Route::resource('/courses', 'CourseController');
 

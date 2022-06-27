@@ -110,13 +110,7 @@ class LoginRegister extends Component
      */
     protected function username($login)
     {
-        if (is_numeric($login)) {
-            $field = 'mobile';
-        } elseif (filter_var($login, FILTER_VALIDATE_EMAIL)) {
-            $field = 'email';
-        } else {
-            $field = 'username';
-        }
+        $field = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'mobile';
 
         return [$field => $login];
     }
@@ -166,11 +160,11 @@ class LoginRegister extends Component
             dd($validator->getMessageBag());
         }
 
-//        User::create( [
-//            'email'    => $this->email,
-//            'mobile'   => $this->mobile,
-//            'password' => $this->password
-//        ]);
+       User::create( [
+           'email'    => $this->email,
+           'mobile'   => $this->mobile,
+           'password' => $this->password
+       ]);
 
         $this->resetInputFields();
     }

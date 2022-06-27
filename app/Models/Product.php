@@ -51,4 +51,12 @@ class Product extends Model
     {
         return asset($this->image_url ?? 'images/placeholder.svg');
     }
+
+    /**
+     * Get all of the post's comments.
+     */
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable');
+    }
 }

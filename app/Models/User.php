@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Jalali;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -10,13 +11,23 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens;
-    use HasFactory;
-    use Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, Jalali;
 
-    public const ADMIN_ROLE = 'ADMIN';
 
-    public const USER_ROLE = 'USER';
+    public const ADMIN_ROLE      = 'ADMIN';
+
+    public const USER_ROLE       = 'USER';
+
+    public const INSTRUCTOR_ROLE = 'INSTRUCTOR';
+
+    public const FELLOW_ROLE     = 'FELLOW';
+
+    protected const ROLES_NAME = [
+        self::ADMIN_ROLE => 'مدیریت سایت',
+        self::USER_ROLE  => 'کاربر',
+        self::INSTRUCTOR_ROLE  => 'مدرس', 
+        self::FELLOW_ROLE  => 'همیار'  
+    ];
 
     /**
      * The attributes that are mass assignable.
@@ -25,9 +36,12 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'username',
+        'fullname',
         'email',
         'mobile',
         'password',
+        'address',
+        'bio'
     ];
 
     /**
@@ -58,5 +72,23 @@ class User extends Authenticatable
     public function hasUser()
     {
         return (bool) (! $this->hasAdmin());
+    }
+
+    public function getRoleName()
+    {
+        return self::ROLES_NAME[$this->role] ?? NULL;
+    }
+
+    public function getRoles(): array
+    {
+        return self::ROLES_NAME;
+    }
+
+
+    public function username($login)
+    {
+        $field = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'mobile';
+
+        return [$field => $login];
     }
 }

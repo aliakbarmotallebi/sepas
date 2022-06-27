@@ -11,4 +11,10 @@ class HomeController extends MainController
     {
         return 'welcome home';
     }
+
+
+    public function upload(Request $request)
+    {
+        return($request->all());
+    }
 }
