@@ -7,10 +7,11 @@ use App\Traits\Status;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use willvincent\Rateable\Rateable;
 
 class Product extends Model
 {
-    use HasFactory, Status, Jalali, Sluggable;
+    use HasFactory, Status, Jalali, Sluggable, Rateable;
 
     /**
      * Return the sluggable configuration array for this model.

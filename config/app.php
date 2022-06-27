@@ -188,6 +188,8 @@ return [
         Hekmatinasser\Verta\Laravel\VertaServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        willvincent\Rateable\RateableServiceProvider::class,
+
 
         /*
          * Application Service Providers...

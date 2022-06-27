@@ -6,10 +6,11 @@ use App\Traits\Jalali;
 use App\Traits\Status;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use willvincent\Rateable\Rateable;
 
 class Comment extends Model
 {
-    use HasFactory, Jalali, Status;
+    use HasFactory, Jalali, Status, Rateable;
 
     /**
      * Get the parent commentable model (post or video).
