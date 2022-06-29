@@ -95,32 +95,34 @@
             </tr>
         </x-slot>
         <x-slot name="content">
-            @foreach ($orders->order_products as $order)
-                <tr class="bg-white border-b hover:bg-gray-100">
-                    <th class="text-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                        {{ $order->product->title }}
-                    </th>
-                    <td scope="row" class="px-6 py-4 text-center">
-                        {{ $order->price }}
-                    </td>
-                    <td class="px-6 py-4">
-                        <div class="flex justify-end text-center">
-                            <livewire:delete :entity="$order" :url="request()->fullUrl()"/>
-                        </div>
-                    </td>
-                </tr>
-            @endforeach
-                <tr class="bg-gray-100">
-                    <th colspan="2"  class="px-6 py-3 text-left font-bold">
-                        مبلغ قابل پرداخت
-                        <span class="text-gray-400 text-xs">
-                            (تومان) 
-                        </span>
-                    </th>
-                    <th class="px-6 py-3 text-left font-bold">
-                        {{ $order->price }}
-                    </th>
-                </tr>
+            @if($orders->order_products->count() > 0 )
+                @foreach ($orders->order_products as $order)
+                    <tr class="bg-white border-b hover:bg-gray-100">
+                        <th class="text-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                            {{ $order->product->title }}
+                        </th>
+                        <td scope="row" class="px-6 py-4 text-center">
+                            {{ $order->price }}
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="flex justify-end text-center">
+                                <livewire:delete :entity="$order" :url="request()->fullUrl()"/>
+                            </div>
+                        </td>
+                    </tr>
+                @endforeach
+                    <tr class="bg-gray-100">
+                        <th colspan="2"  class="px-6 py-3 text-left font-bold">
+                            مبلغ قابل پرداخت
+                            <span class="text-gray-400 text-xs">
+                                (تومان) 
+                            </span>
+                        </th>
+                        <th class="px-6 py-3 text-left font-bold">
+                            {{ $order->price }}
+                        </th>
+                    </tr>
+            @endif
         </x-slot>
    
     </x-dashboard.table>

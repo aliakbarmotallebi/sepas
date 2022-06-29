@@ -1,1 +1,5 @@
 @import '../tailwind.css';
+
+input:checked ~ .tab-content {
+    max-height: 100vh;
+    }

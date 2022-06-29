@@ -23,9 +23,26 @@ return new class extends Migration {
             $table->string('parent_id')
                 ->nullable();
 
-            $table->morphs('categorizable');
-
             $table->timestamps();
+        });
+
+        Schema::create('categorizables', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('category_id');
+            $table->morphs('categorizable');
+            $table->timestamps();
+
+            $table->unique([
+                 'category_id',
+                 'categorizable_id',
+                 'categorizable_type'
+                ], 'categorizable_type_unique');
+
+            $table->foreign('category_id')
+                ->references('id')
+                ->on('categories')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 
@@ -36,6 +53,7 @@ return new class extends Migration {
      */
     public function down()
     {
+        Schema::dropIfExists('categorizables');
         Schema::dropIfExists('categories');
     }
 };
