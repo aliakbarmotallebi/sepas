@@ -21,12 +21,12 @@ class CategoryForm extends Component
     ];
 
     protected $listeners = [
-        'openerModal' => 'updatedIsOpenModal',
-        'restModal'   => 'updatedIsOpenModal'
+        'openModal' => 'isOpenModal'
     ];
  
-    public function updatedIsOpenModal()
+    public function isOpenModal()
     {
+        // dd($this->isOpenModal);
         $this->isOpenModal = !$this->isOpenModal;
     }
 

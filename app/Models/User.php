@@ -84,6 +84,21 @@ class User extends Authenticatable
         return self::ROLES_NAME;
     }
 
+    public function courses()
+    {
+        return $this->hasMany(Course::class, 'owner_id');
+    }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'owner_id');
+    }
+
+    public function scopeInstructors($query)
+    {
+        return $query->whereRole(self::INSTRUCTOR_ROLE);
+    }
+
 
     public function username($login)
     {

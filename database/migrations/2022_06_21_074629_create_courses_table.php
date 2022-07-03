@@ -22,27 +22,27 @@ return new class extends Migration {
             $table->text('body')
                 ->nullable();
 
-            $table->text('image_url');
+            $table->longText('image_url');
 
             $table->string('price');
 
-            $table->text('video_url')
+            $table->longText('video_url')
                 ->nullable();
 
-            $table->json('topics')
+            $table->longText('topics')
                 ->nullable();
 
-            $table->text('requirements')
+            $table->longText('requirements')
                 ->nullable();
 
             $table->string('wallet_balance')
-                ->defualt(0);
+                ->default(0);
 
             $table->integer('comments_count')
-                ->defualt(0);
+                ->default(0);
 
             $table->integer('sold_count')
-                ->defualt(0);
+                ->default(0);
 
             $table->unsignedBigInteger('owner_id');
             $table->foreign('owner_id')

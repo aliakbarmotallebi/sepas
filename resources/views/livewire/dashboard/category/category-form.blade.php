@@ -1,6 +1,9 @@
 
-<x-modal title="ذخیره دسته بندی" opening="{{ $isOpenModal }}">
+<x-modal title="ذخیره دسته بندی" isVisible="{{ $isOpenModal }}">
 
+    <div>
+        {{ $isOpenModal }}
+    </div>
     <div class="col-span-1">
         <form>
             <div>

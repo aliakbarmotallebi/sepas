@@ -9,18 +9,18 @@ class Modal extends Component
 
     public ?string $title;
 
-    public ?bool $opening = false;
+    public ?bool $isVisible = false;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($title = '', $opening = false)
+    public function __construct($title = '', $isVisible = false)
     {
         $this->title = $title;
 
-        $this->opening = $opening;
+        $this->isVisible = $isVisible;
     }
 
     /**

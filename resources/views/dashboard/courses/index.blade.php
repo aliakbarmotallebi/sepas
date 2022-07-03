@@ -6,24 +6,11 @@
 
 @section('content')
     <section class="mt-4">
-        <div>
-            <a href="{{ route('dashboard.courses.create') }}" class="flex border justify-between items-center bg-white text-sky-700 hover:bg-white px-3 py-2 rounded-lg hover:text-sky-700 text-sm">
-                <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-4 w-4 ml-1"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
-              </svg>
-                ایجاد دوره جدید
-            </a>
-        </div>
+
+        <x-form.breadcrumb 
+        label="ایجاد دوره جدید" 
+        route="{{ route('dashboard.courses.create') }}"/>
+
         <!-- Courses Table-->
         <x-dashboard.cart title="لیست دوره ها" >
             <x-slot name="header">
@@ -35,16 +22,24 @@
 
                 @foreach ($courses as $course)
                 <div class="w-full flex flex-row border border-gray-200/80 bg-white p-4">
-                    <div class="w-28">
-                        <img class="w-28 h-28 rounded-md object-cover" src="{{ asset('images/test.png') }}"/>
+                    <div class="w-28 relative">
+                        <div class="absolute left-1 bottom-1 bg-gray-300/50 rounded-lg pl-2 pt-1">
+                            <livewire:status :entity="$course" />
+                        </div>
+                        <img class="w-28 h-28 rounded-md object-cover" src="{{ $course->getImageUrl() }}"/>
                     </div>
                     <div class="flex flex-col px-6">
                         <div class="flex h-8 flex-row">
                             <a href="" target="_blank">
                                 <h2 class="text-lg font-semibold">
-                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
+                                   {{ $course->title }}
                                 </h2>
                             </a>
+                            
+                        </div>
+
+                        <div class="text-gray-600 text-xs p-1">
+                            {{ $course->body }}
                         </div>
 
                         <div class="mt-2 flex flex-row items-center">
@@ -57,7 +52,9 @@
                                         d="M12,23A1,1 0 0,1 11,22V19H7A2,2 0 0,1 5,17V7A2,2 0 0,1 7,5H21A2,2 0 0,1 23,7V17A2,2 0 0,1 21,19H16.9L13.2,22.71C13,22.89 12.76,23 12.5,23H12M13,17V20.08L16.08,17H21V7H7V17H13M3,15H1V3A2,2 0 0,1 3,1H19V3H3V15M9,9H19V11H9V9M9,13H17V15H9V13Z" />
                                         </svg>
                         
-                                    <span class="font-bold text-gray-600"> 100 </span>
+                                    <span class="font-bold text-gray-600"> 
+                                        {{ $course->comments_count }}    
+                                    </span>
                                 </div>
                             </a>
                             <a href="#"
@@ -77,7 +74,7 @@
                                         <circle cx="12" cy="12" r="3" />
                                         </svg>
                         
-                                    <span class="font-bold text-gray-600"> 2 </span>
+                                    <span class="font-bold text-gray-600"> {{ $course->comments_count }}  </span>
                                 </div>
                             </a>
                             <a href="#"
@@ -97,7 +94,9 @@
                                         <polyline points="12 6 12 12 16 14" />
                                         </svg>
                         
-                                    <span class="font-bold text-gray-600"> 1401-10-11 </span>
+                                    <span class="font-bold text-gray-600"> 
+                                        {{ $course->getCreatedAt() }}
+                                    </span>
                                 </div>
                             </a>
 
@@ -106,9 +105,9 @@
                                     منتشر شده
                                 </span>
                             @else
-                            <span class="bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-red-200 dark:text-red-900">
-                                منتشر نشده
-                            </span>
+                                <span class="bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-red-200 dark:text-red-900">
+                                    منتشر نشده
+                                </span>
                             @endif
 
                         </div>
@@ -116,41 +115,24 @@
                     <div class="mr-auto">
                         <div class="flex flex-row">
     
-                            <button
-                            class="ml-2 flex items-center rounded border border-rose-500 p-[4.8px] text-rose-500 transition-all duration-150 ease-in-out hover:text-white hover:bg-rose-500">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    class="w-4 h-4"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                >
-                                    <polyline points="3 6 5 6 21 6" />
-                                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-                                    <line x1="10" y1="11" x2="10" y2="17" />
-                                    <line x1="14" y1="11" x2="14" y2="17" />
-                                </svg>
-                            </button>
-
-                            <button
-                            class="ml-2 flex items-center rounded border border-gray-500 p-[4.8px] text-gray-500 transition-all duration-150 ease-in-out hover:text-white hover:bg-gray-800">
-                                <svg
-                                class="w-4 h-4"
-                                viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            >
-                                <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z" />
-                            </svg>                            
-                            </button>
-
+                            <div class="flex text-center">
+                                <a href="{{ route('dashboard.courses.edit', $course) }}" target="_blank" class="ml-1 flex items-center p-2 text-xs font-medium text-gray-700 bg-white rounded-lg border border-gray-200 toggle-dark-state-example hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 focus:outline-none">
+                                    <svg
+                                        class="w-4 h-4"
+                                        viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        >
+                                        <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z" />
+                                        </svg>
+                                    </a>
+                                <livewire:delete :entity="$course" :url="request()->fullUrl()"/>
+                            </div>
+        
                         </div>
                     </div>
                 </div>

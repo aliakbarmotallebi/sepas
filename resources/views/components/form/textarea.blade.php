@@ -6,7 +6,8 @@
         @if($readonly)
             disabled readonly
         @endif
-    >{{$value}}</textarea>
+
+    >{{ old($name, $value ?? '') }}</textarea>
 
     <x-form.error :name="$name"/>
 </div>
