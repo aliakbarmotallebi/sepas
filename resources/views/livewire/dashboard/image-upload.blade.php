@@ -18,8 +18,8 @@
         </div>
     @endforeach
 
-    <label class="grid place-content-center border-2 border-dashed border-gray-300 rounded-lg pt-4">
-        <button class="px-4 pb-4 flex items-center flex-col justify-center h-full relative">
+    <label class="grid place-content-center cursor-pointer hover:bg-gray-100/90 border-2 relative border-dashed border-gray-300 rounded-lg pt-4">
+        <button class="w-full px-4 pb-4 flex items-center flex-col justify-center h-full">
             <div wire:target="rawImage" wire:loading.class.add="hidden"
                 class="flex flex-col items-center text-gray-400">
                 <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
