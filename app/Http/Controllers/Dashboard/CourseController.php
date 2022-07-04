@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Course;
+use App\Models\Product;
 use App\Models\User;
 use App\Repositories\CourseRepository;
 use App\Traits\ImageUpload;
@@ -145,6 +146,13 @@ class CourseController extends DashboardController
             alert()->success('با موفقیت ویرایش شد!');
 
         return redirect()->route('dashboard.courses.index');
+    }
+
+    public function uploads(Course $course)
+    {
+        return view($this->theme.'courses.uploads',
+            compact('course')
+        );
     }
 
 }

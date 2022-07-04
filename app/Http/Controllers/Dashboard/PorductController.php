@@ -121,4 +121,11 @@ class PorductController extends DashboardController
 
         return redirect()->route('dashboard.products.index');
     }
+
+    public function uploads(Product $product)
+    {
+        return view($this->theme.'products.uploads',
+            compact('product')
+        );
+    }
 }

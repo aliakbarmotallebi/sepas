@@ -76,6 +76,22 @@ class Course extends Model
     }
 
 
+    public function getImagesUrl()
+    {
+
+        if( $this->images->count() ){
+            return $this->images;
+        }
+
+        return collect();
+    }
+
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
+
+
     /**
      * Get all of the post's comments.
      */

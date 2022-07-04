@@ -25,6 +25,9 @@ Route::group([
 
         Route::resource('/courses', 'CourseController');
 
+        Route::get('/courses/uploads/{course}', 'CourseController@uploads')
+            ->name('courses.uploads');
+
         Route::resource('/orders', 'OrderController');
 
         Route::get('/payments', 'PaymentController')
@@ -40,5 +43,8 @@ Route::group([
             ->only(['index']);
 
         Route::resource('/products', 'PorductController');
+
+        Route::get('/products/uploads/{product}', 'PorductController@uploads')
+            ->name('products.uploads');
     });
 });

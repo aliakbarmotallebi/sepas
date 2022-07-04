@@ -189,6 +189,8 @@ return [
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         willvincent\Rateable\RateableServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
+
 
 
         /*
@@ -218,6 +220,8 @@ return [
         'Verta' => Hekmatinasser\Verta\Verta::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
         'Debugbar' => Barryvdh\Debugbar\Facades\Debugbar::class,
+        'Image' => Intervention\Image\Facades\Image::class
+
 
 
     ])->toArray(),
