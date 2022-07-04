@@ -153,6 +153,17 @@ class CourseController extends DashboardController
         return redirect()->route('dashboard.courses.index');
     }
 
+    public function uploadVideo(Request $request, Course $course)
+    {
+
+        dd($request);
+        // $request->validate([
+        //     'rawVideo' => 'sometimes|file|mimes:avi,mp4',
+        // ]);
+
+
+    }
+
     public function uploads(Course $course)
     {
         return view(

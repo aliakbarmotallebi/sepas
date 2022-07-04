@@ -29,8 +29,9 @@
         <x-dashboard.cart title="بارگذاری ویدیو " >
             <x-slot name="header"></x-slot>
             <x-slot name="content">
-                    upload video
-
+                @livewire('dashboard.video-upload', 
+                    [ 'em' => $course ] 
+                )
             </x-slot>
         </x-dashboard.cart>
         <!-- /Courses Table-->

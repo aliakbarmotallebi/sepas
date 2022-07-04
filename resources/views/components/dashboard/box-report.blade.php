@@ -12,14 +12,14 @@
                 <div>
                     مدیر سایت
                     <span class=" text-gray-800 sm:text-21 text-lg mr-1 font-bold">
-                              13
+                              {{ $countAdmins  }}
                           </span>
                 </div>
                 <i class="flex mx-2 h-5 border-l border-gray-50"></i>
                 <div>
                     کاربر عادی
                     <span class=" text-gray-800 sm:text-21 text-lg mr-1 font-bold">
-                              57
+                              {{ $countUsers }}
                           </span>
                 </div>
             </div>
@@ -40,14 +40,14 @@
                 <div>
                     پرداخت شده
                     <span class=" text-gray-800 sm:text-21 text-lg mr-1 font-bold">
-                            2,483,550
+                            {{ number_format($countPaid) }}
                         </span>
                 </div>
                 <i class="flex mx-2 h-5 border-l border-gray-50"></i>
                 <div>
                     در انتظار پرداخت
                     <span class=" text-gray-800 sm:text-21 text-lg mr-1 font-bold">
-                            11,837,283
+                        {{ number_format($countUnpaid) }}
                         </span>
                 </div>
             </div>
@@ -69,7 +69,7 @@
                 <div>
                     محصول
                     <span class=" text-gray-800 sm:text-21 text-lg mr-1 font-bold">
-                            70
+                            {{ $countProducts }}
                         </span>
                 </div>
             </div>

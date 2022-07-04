@@ -81,6 +81,11 @@ class Course extends Model
         return collect();
     }
 
+    public function getVideoUrl()
+    {
+        return $this->video_url ?? null;
+    }
+
     public function images()
     {
         return $this->morphMany(Image::class, 'imageable');

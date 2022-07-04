@@ -81,8 +81,8 @@
         <x-slot name="content">
             @foreach ($products as $product)
                 <tr class="bg-white border-b hover:bg-gray-100">
-                    <td scope="row" class="px-3 py-1">
-                       <img class="w-32 h-20 rounded-lg object-cover" src="{{ $product->getImageUrl() }}">
+                    <td scope="row" class="w-28">
+                       <img class="mr-2 w-24 h-24 rounded-lg object-cover" src="{{ $product->getImageUrl() }}">
                     </td>
                     <th class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                         {{ $product->title }}

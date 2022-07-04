@@ -28,6 +28,9 @@ Route::group([
         Route::get('/courses/uploads/{course}', 'CourseController@uploads')
             ->name('courses.uploads');
 
+        Route::post('/courses/uploads/video/{course}', 'CourseController@uploadVideo')
+            ->name('courses.uploads.video');
+
         Route::resource('/orders', 'OrderController');
 
         Route::get('/payments', 'PaymentController')
