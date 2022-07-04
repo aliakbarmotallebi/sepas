@@ -6,8 +6,8 @@ use Illuminate\View\Component;
 
 class Error extends Component
 {
-
     public ?string $name = null;
+
     /**
      * Create a new component instance.
      *
@@ -15,7 +15,7 @@ class Error extends Component
      */
     public function __construct($name = '')
     {
-        $this->name  = $name;
+        $this->name = $name;
     }
 
     /**

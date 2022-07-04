@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Cviebrock\EloquentSluggable\Sluggable;
 
 class Category extends Model
 {
@@ -12,10 +12,10 @@ class Category extends Model
 
     protected $fillable = [
         'label',
-        'parent_id'
+        'parent_id',
     ];
 
-        /**
+    /**
      * Return the sluggable configuration array for this model.
      *
      * @return array
@@ -31,6 +31,6 @@ class Category extends Model
 
     public function childs()
     {
-        return $this->hasMany(Category::class, 'parent_id', 'id');
+        return $this->hasMany(self::class, 'parent_id', 'id');
     }
 }

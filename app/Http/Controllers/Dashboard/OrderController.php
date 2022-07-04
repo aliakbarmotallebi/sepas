@@ -18,9 +18,9 @@ class OrderController extends Controller
         $orders = Order::withCount('order_products')
             ->latest()
             ->paginate(15);
+
         return view('dashboard.orders.index', compact('orders'));
     }
-
 
     /**
      * Display the specified resource.
@@ -30,8 +30,8 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        return view('dashboard.orders.show',[
-            'orders' => $order
+        return view('dashboard.orders.show', [
+            'orders' => $order,
         ]);
     }
 

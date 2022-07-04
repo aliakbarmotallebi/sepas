@@ -17,6 +17,7 @@ class PaymentController extends Controller
     {
         $payments = Payment::latest()
             ->paginate(15);
+
         return view('dashboard.payments.index', compact('payments'));
     }
 }

@@ -35,7 +35,7 @@ return new class extends Migration {
             $table->unique([
                  'category_id',
                  'categorizable_id',
-                 'categorizable_type'
+                 'categorizable_type',
                 ], 'categorizable_type_unique');
 
             $table->foreign('category_id')

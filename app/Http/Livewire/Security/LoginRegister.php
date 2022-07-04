@@ -160,10 +160,10 @@ class LoginRegister extends Component
             dd($validator->getMessageBag());
         }
 
-       User::create( [
+        User::create([
            'email'    => $this->email,
            'mobile'   => $this->mobile,
-           'password' => $this->password
+           'password' => $this->password,
        ]);
 
         $this->resetInputFields();

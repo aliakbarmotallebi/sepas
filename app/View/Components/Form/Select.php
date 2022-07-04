@@ -28,20 +28,20 @@ class Select extends Component
      * @return void
      */
     public function __construct(
-        $label= '',
+        $label = '',
         $name = '',
         $placeholder = '',
         $value = '',
         $required = false,
         $readonly = false,
-        $options  = [],
+        $options = [],
         $selected = null
-        ){
+    ) {
         $this->label = $label;
 
-        $this->name  = $name;
+        $this->name = $name;
 
-        $this->placeholder  = $placeholder;
+        $this->placeholder = $placeholder;
 
         $this->required = $required;
 
@@ -53,7 +53,7 @@ class Select extends Component
 
         $this->selected = $selected;
     }
- 
+
     /**
      * Get the view / contents that represent the component.
      *

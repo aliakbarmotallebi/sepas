@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Models\Category;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Models\Category;
+use Illuminate\Http\Request;
 
 class CategoryController extends DashboardController
 {
@@ -16,7 +16,6 @@ class CategoryController extends DashboardController
      */
     public function __invoke()
     {
-        return view($this->theme. 'categories.index');
-
+        return view($this->theme.'categories.index');
     }
 }

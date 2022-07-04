@@ -27,7 +27,7 @@ class Course extends Model
         'type',
     ];
 
-        /**
+    /**
      * Return the sluggable configuration array for this model.
      *
      * @return array
@@ -41,12 +41,10 @@ class Course extends Model
         ];
     }
 
-
     public function owner()
     {
         return $this->belongsTo(User::class);
     }
-
 
     public function instructor()
     {
@@ -56,9 +54,8 @@ class Course extends Model
     public function categories()
     {
         return $this->morphToMany(Comment::class, 'categorizables');
-    }  
-    
-    
+    }
+
     public function setDescriptionAttribute($value)
     {
         $this->attributes['description'] = $value;
@@ -70,16 +67,14 @@ class Course extends Model
         return number_format($value) ?? 0;
     }
 
-    public function getImageUrl() 
+    public function getImageUrl()
     {
         return asset($this->image_url ?? 'images/placeholder.svg');
     }
 
-
     public function getImagesUrl()
     {
-
-        if( $this->images->count() ){
+        if ($this->images->count()) {
             return $this->images;
         }
 
@@ -90,7 +85,6 @@ class Course extends Model
     {
         return $this->morphMany(Image::class, 'imageable');
     }
-
 
     /**
      * Get all of the post's comments.

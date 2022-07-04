@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Models\Product;
-use App\Models\Category;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Product;
 use App\Repositories\ProductRepository;
 use App\Traits\ImageUpload;
+use Illuminate\Http\Request;
 
 class PorductController extends DashboardController
 {
     use ImageUpload;
+
     /**
      * Display a listing of the resource.
      *
@@ -20,6 +21,7 @@ class PorductController extends DashboardController
     public function index(ProductRepository $repository)
     {
         $products = $repository->all();
+
         return view(
             $this->theme.'products.index',
             compact('products')
@@ -34,13 +36,14 @@ class PorductController extends DashboardController
     public function create()
     {
         $categories = Category::select([
-            'id', 'label'
+            'id', 'label',
             ])->get();
-        return view($this->theme . 'products.create',
+
+        return view(
+            $this->theme.'products.create',
             compact('categories')
         );
     }
-
 
     /**
      * Store a newly created resource in storage.
@@ -60,16 +63,18 @@ class PorductController extends DashboardController
 
         $request->merge([
             'image_url' => $this->uploadImage(
-                request()->file('image') )
+                request()->file('image')
+            ),
         ]);
 
         $product = $request
                 ->user()
                 ->products()
                 ->create($request->all());
-                
-        if($product instanceof Product)
+
+        if ($product instanceof Product) {
             alert()->success('با موفقیت ایجاد شد!');
+        }
 
         return redirect()->route('dashboard.products.index');
     }
@@ -83,9 +88,11 @@ class PorductController extends DashboardController
     public function edit(Product $product)
     {
         $categories = Category::select([
-            'id', 'label'
+            'id', 'label',
             ])->get();
-        return view($this->theme . 'products.edit',
+
+        return view(
+            $this->theme.'products.edit',
             compact('product', 'categories')
         );
     }
@@ -107,24 +114,27 @@ class PorductController extends DashboardController
             'image' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:1048',
         ]);
 
-        if( $request->has('image') ){
+        if ($request->has('image')) {
             $request->merge([
                 'image_url' => $this->uploadImage(
-                    request()->file('image') )
+                    request()->file('image')
+                ),
             ]);
         }
 
         $saved = $product->update($request->all());
-                
-        if($saved)
+
+        if ($saved) {
             alert()->success('با موفقیت ویرایش شد!');
+        }
 
         return redirect()->route('dashboard.products.index');
     }
 
     public function uploads(Product $product)
     {
-        return view($this->theme.'products.uploads',
+        return view(
+            $this->theme.'products.uploads',
             compact('product')
         );
     }

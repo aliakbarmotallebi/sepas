@@ -3,11 +3,10 @@
 namespace App\Http\Livewire\Dashboard;
 
 use App\Models\Image as ImageCourse;
+use Illuminate\Support\Facades\File;
 use Image;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use Illuminate\Support\Facades\File; 
-
 
 class ImageUpload extends Component
 {
@@ -36,23 +35,22 @@ class ImageUpload extends Component
             'rawImage' => 'required|image|mimes:jpeg,png,svg,jpg,gif|max:1024',
         ]);
 
-        $name = $this->rawImage->store('/','public');
+        $name = $this->rawImage->store('/', 'public');
 
         $rename = "upload/sliders/{$name}";
         $crop = public_path($rename);
 
         $img = Image::make(storage_path("app/public/{$name}"))
-            ->resize(600, 600, function ($constraint){
-            $constraint->aspectRatio();
-        })->save($crop);
-
+            ->resize(600, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($crop);
 
         $this->em->images()->create([
-            'url' => $rename
+            'url' => $rename,
         ]);
 
         $this->emit('changeImagesOrRemove');
-    } 
+    }
 
     public function remove(ImageCourse $image)
     {
@@ -64,6 +62,7 @@ class ImageUpload extends Component
     public function render()
     {
         $this->images = $this->em->getImagesUrl(); //entitymanager
+
         return view('livewire.dashboard.image-upload');
     }
 }

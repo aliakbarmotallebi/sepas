@@ -6,7 +6,6 @@ use Illuminate\View\Component;
 
 class Textarea extends Component
 {
-
     public ?string $name = null;
 
     public ?string $label = null;
@@ -18,7 +17,7 @@ class Textarea extends Component
     public ?string $value = null;
 
     public bool $readonly = false;
-    
+
     /**
      * Create a new component instance.
      *
@@ -31,13 +30,12 @@ class Textarea extends Component
         $value = '',
         $required = false,
         $readonly = false
-        )
-    {
+    ) {
         $this->label = $label;
 
-        $this->name  = $name;
+        $this->name = $name;
 
-        $this->placeholder  = $placeholder;
+        $this->placeholder = $placeholder;
 
         $this->required = $required;
 

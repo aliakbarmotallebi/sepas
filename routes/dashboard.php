@@ -32,7 +32,7 @@ Route::group([
 
         Route::get('/payments', 'PaymentController')
             ->name('payments.index');
-        
+
         Route::get('/categories', 'CategoryController')
             ->name('categories.index');
 

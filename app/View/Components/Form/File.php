@@ -24,18 +24,18 @@ class File extends Component
      * @return void
      */
     public function __construct(
-        $label= '',
+        $label = '',
         $name = '',
         $placeholder = '',
         $value = '',
         $required = false,
         $readonly = false
-        ){
+    ) {
         $this->label = $label;
 
-        $this->name  = $name;
+        $this->name = $name;
 
-        $this->placeholder  = $placeholder;
+        $this->placeholder = $placeholder;
 
         $this->required = $required;
 

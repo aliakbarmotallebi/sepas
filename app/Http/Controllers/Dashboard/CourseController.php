@@ -48,11 +48,12 @@ class CourseController extends DashboardController
     public function create()
     {
         $categories = Category::select([
-            'id', 'label'
+            'id', 'label',
             ])->get();
         $users = User::instructors()->select([
-            'id', 'username'
+            'id', 'username',
         ]);
+
         return view($this->theme.'courses.create', compact('categories', 'users'));
     }
 
@@ -79,20 +80,21 @@ class CourseController extends DashboardController
 
         $request->merge([
             'image_url' => $this->uploadImage(
-                request()->file('image') )
+                request()->file('image')
+            ),
         ]);
 
         $course = $request
                 ->user()
                 ->courses()
                 ->create($request->all());
-                
-        if($course instanceof Course)
+
+        if ($course instanceof Course) {
             alert()->success('با موفقیت ایجاد شد!');
+        }
 
         return redirect()->route('dashboard.courses.index');
     }
-
 
     /**
      * Show the form for editing the specified resource.
@@ -103,11 +105,12 @@ class CourseController extends DashboardController
     public function edit(Course $course)
     {
         $categories = Category::select([
-            'id', 'label'
+            'id', 'label',
             ])->get();
         $users = User::instructors()->select([
-            'id', 'username'
+            'id', 'username',
         ]);
+
         return view($this->theme.'courses.edit', compact('categories', 'users', 'course'));
     }
 
@@ -133,26 +136,28 @@ class CourseController extends DashboardController
             'image' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:1048',
         ]);
 
-        if( $request->has('image') ){
+        if ($request->has('image')) {
             $request->merge([
                 'image_url' => $this->uploadImage(
-                    request()->file('image') )
+                    request()->file('image')
+                ),
             ]);
         }
 
         $course = $course->update($request->all());
-                
-        if($course)
+
+        if ($course) {
             alert()->success('با موفقیت ویرایش شد!');
+        }
 
         return redirect()->route('dashboard.courses.index');
     }
 
     public function uploads(Course $course)
     {
-        return view($this->theme.'courses.uploads',
+        return view(
+            $this->theme.'courses.uploads',
             compact('course')
         );
     }
-
 }

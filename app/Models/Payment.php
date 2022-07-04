@@ -11,21 +11,21 @@ class Payment extends Model
 {
     use HasFactory, Status, Jalali;
 
-    public const PENDING_STATUS   = 'PENDING';
+    public const PENDING_STATUS = 'PENDING';
 
-    public const REJECTED_STATUS  = 'REJECTED';
+    public const REJECTED_STATUS = 'REJECTED';
 
     public const COMPLETED_STATUS = 'COMPLETED';
 
     protected $services = [
         'App\Models\Order' => 'خرید',
-        'App\Models\Invoice' => 'تراکنش'
+        'App\Models\Invoice' => 'تراکنش',
     ];
 
     protected const STATUS_NAME = [
         self::PENDING_STATUS => 'معلق',
         self::REJECTED_STATUS  => 'رد شده',
-        self::COMPLETED_STATUS  => 'کامل شده', 
+        self::COMPLETED_STATUS  => 'کامل شده',
     ];
 
     public function paymentable()
@@ -35,12 +35,12 @@ class Payment extends Model
 
     public function getNameService()
     {
-        return $this->services[$this->paymentable_type] ?? NULL;
+        return $this->services[$this->paymentable_type] ?? null;
     }
 
     public function getStatusName()
     {
-        return self::STATUS_NAME[$this->status] ?? NULL;
+        return self::STATUS_NAME[$this->status] ?? null;
     }
 
     public function getAmountAttribute($value)
@@ -50,7 +50,6 @@ class Payment extends Model
 
     public function isPaid()
     {
-        return ($this->status === self::COMPLETED_STATUS);
+        return $this->status === self::COMPLETED_STATUS;
     }
-
 }

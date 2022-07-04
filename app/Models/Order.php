@@ -39,7 +39,6 @@ class Order extends Model
 
     public function isUnpaid()
     {
-       return !$this->isPaid();
+        return ! $this->isPaid();
     }
-    
 }

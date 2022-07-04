@@ -2,15 +2,14 @@
 
 namespace App\Models;
 
-
 use App\Traits\Jalali;
 use App\Traits\Status;
-use willvincent\Rateable\Rateable;
-use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use willvincent\Rateable\Rateable;
 
-class Product extends Model 
+class Product extends Model
 {
     use HasFactory, Status, Jalali, Sluggable, Rateable;
 
@@ -49,7 +48,7 @@ class Product extends Model
         return number_format($value) ?? 0;
     }
 
-    public function getImageUrl() 
+    public function getImageUrl()
     {
         return asset($this->image_url ?? 'images/placeholder.svg');
     }

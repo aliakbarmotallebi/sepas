@@ -13,20 +13,19 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, Jalali;
 
+    public const ADMIN_ROLE = 'ADMIN';
 
-    public const ADMIN_ROLE      = 'ADMIN';
-
-    public const USER_ROLE       = 'USER';
+    public const USER_ROLE = 'USER';
 
     public const INSTRUCTOR_ROLE = 'INSTRUCTOR';
 
-    public const FELLOW_ROLE     = 'FELLOW';
+    public const FELLOW_ROLE = 'FELLOW';
 
     protected const ROLES_NAME = [
         self::ADMIN_ROLE => 'مدیریت سایت',
         self::USER_ROLE  => 'کاربر',
-        self::INSTRUCTOR_ROLE  => 'مدرس', 
-        self::FELLOW_ROLE  => 'همیار'  
+        self::INSTRUCTOR_ROLE  => 'مدرس',
+        self::FELLOW_ROLE  => 'همیار',
     ];
 
     /**
@@ -41,7 +40,7 @@ class User extends Authenticatable
         'mobile',
         'password',
         'address',
-        'bio'
+        'bio',
     ];
 
     /**
@@ -76,7 +75,7 @@ class User extends Authenticatable
 
     public function getRoleName()
     {
-        return self::ROLES_NAME[$this->role] ?? NULL;
+        return self::ROLES_NAME[$this->role] ?? null;
     }
 
     public function getRoles(): array
@@ -98,7 +97,6 @@ class User extends Authenticatable
     {
         return $query->whereRole(self::INSTRUCTOR_ROLE);
     }
-
 
     public function username($login)
     {

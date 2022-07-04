@@ -13,8 +13,7 @@ class Event extends Model
         'schedule_at' => 'date:hh:mm',
     ];
 
-
-        /**
+    /**
      * Get all of the post's comments.
      */
     public function comments()

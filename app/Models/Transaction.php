@@ -11,13 +11,12 @@ class Transaction extends Model
 {
     use HasFactory, Status, Jalali;
 
-    public const PENDING_STATUS   = 'PENDING';
+    public const PENDING_STATUS = 'PENDING';
 
-    public const REJECTED_STATUS  = 'REJECTED';
+    public const REJECTED_STATUS = 'REJECTED';
 
     public const COMPLETED_STATUS = 'COMPLETED';
 
-    
     protected $services = [
         'App\Models\Event' => 'رویداد',
         'App\Models\Campaign' => 'کمپین',
@@ -27,7 +26,7 @@ class Transaction extends Model
     protected const STATUS_NAME = [
         self::PENDING_STATUS => 'معلق',
         self::REJECTED_STATUS  => 'رد شده',
-        self::COMPLETED_STATUS  => 'کامل شده', 
+        self::COMPLETED_STATUS  => 'کامل شده',
     ];
 
     public function owner()
@@ -42,12 +41,12 @@ class Transaction extends Model
 
     public function getNameService()
     {
-        return $this->services[$this->transactable_type] ?? NULL;
+        return $this->services[$this->transactable_type] ?? null;
     }
 
     public function getStatusName()
     {
-        return self::STATUS_NAME[$this->status] ?? NULL;
+        return self::STATUS_NAME[$this->status] ?? null;
     }
 
     public function getAmountAttribute($value)

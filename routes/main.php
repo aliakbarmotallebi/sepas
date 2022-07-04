@@ -7,7 +7,7 @@ Route::group([
 ], function () {
     Route::get('/', 'HomeController@index')
         ->name('index');
-    
+
     Route::post('/uploads', 'HomeController@upload')
         ->name('upload');
 });

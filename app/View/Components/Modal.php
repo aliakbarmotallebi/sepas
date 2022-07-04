@@ -6,7 +6,6 @@ use Illuminate\View\Component;
 
 class Modal extends Component
 {
-
     public ?string $title;
 
     public ?bool $isVisible = false;

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Models\User;
-use Illuminate\Http\Request;
-use App\Repositories\UserRepository;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Models\User;
+use App\Repositories\UserRepository;
+use Illuminate\Http\Request;
 
 class UserController extends DashboardController
 {
@@ -39,7 +39,9 @@ class UserController extends DashboardController
     public function create()
     {
         $roles = resolve($this->repository->model())->getRoles();
-        return view('dashboard.users.create', 
+
+        return view(
+            'dashboard.users.create',
             compact('roles')
         );
     }
@@ -86,7 +88,8 @@ class UserController extends DashboardController
      */
     public function edit(User $user)
     {
-        return view('dashboard.users.edit', 
+        return view(
+            'dashboard.users.edit',
             compact('user')
         );
     }
@@ -102,7 +105,7 @@ class UserController extends DashboardController
     {
         $this->validate($request, [
             'username' => 'required',
-            'role'     => 'required'
+            'role'     => 'required',
         ]);
 
         $inputs = $request->except(['_token', '_method']);
@@ -115,7 +118,5 @@ class UserController extends DashboardController
         //alert
 
         return redirect()->route('dashboard.users.index');
-
     }
-
 }

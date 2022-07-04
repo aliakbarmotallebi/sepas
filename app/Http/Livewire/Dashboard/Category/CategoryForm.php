@@ -17,17 +17,17 @@ class CategoryForm extends Component
 
     protected $rules = [
         'label'=>'required|unique:categories,label',
-        'category_id'=>'sometimes'
+        'category_id'=>'sometimes',
     ];
 
     protected $listeners = [
-        'openModal' => 'isOpenModal'
+        'openModal' => 'isOpenModal',
     ];
- 
+
     public function isOpenModal()
     {
         // dd($this->isOpenModal);
-        $this->isOpenModal = !$this->isOpenModal;
+        $this->isOpenModal = ! $this->isOpenModal;
     }
 
     private function resetInput()
@@ -42,7 +42,7 @@ class CategoryForm extends Component
 
         Category::create([
             'label'     => $this->label,
-            'parent_id' => $this->category_id
+            'parent_id' => $this->category_id,
         ]);
 
         return redirect()->to('/dashboard/categories');
@@ -51,6 +51,7 @@ class CategoryForm extends Component
     public function render()
     {
         $this->categories = Category::get();
+
         return view('livewire.dashboard.category.category-form');
     }
 }

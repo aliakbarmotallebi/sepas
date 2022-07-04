@@ -8,9 +8,8 @@ use Livewire\Component;
 
 class Create extends Component
 {
-
     public string $title;
-    
+
     public string $description;
 
     public string $image_url;
@@ -33,7 +32,8 @@ class Create extends Component
 
     public $categories;
 
-    private function resetInputFields(){
+    private function resetInputFields()
+    {
         $this->title = '';
         $this->description = '';
         $this->image_url = '';
@@ -60,13 +60,11 @@ class Create extends Component
             'type' => 'required',
             'unit' => 'required',
         ]);
-   
+
         Course::create(request()->all());
-  
+
         $this->resetInputFields();
     }
-
-    
 
     public function render()
     {

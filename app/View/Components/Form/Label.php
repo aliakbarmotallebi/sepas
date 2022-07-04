@@ -6,7 +6,6 @@ use Illuminate\View\Component;
 
 class Label extends Component
 {
-    
     public ?string $label = null;
 
     public ?string $name = null;
@@ -22,18 +21,17 @@ class Label extends Component
         $label = '',
         $name = '',
         $required = false
-    ){
+    ) {
         $this->label = $label;
 
-        $this->name  = $name;
+        $this->name = $name;
 
         $this->required = $required;
     }
 
-
     public function hasRequired(): bool
     {
-        return ($this->required);
+        return $this->required;
     }
 
     /**

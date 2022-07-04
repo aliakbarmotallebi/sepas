@@ -31,7 +31,8 @@ class CommentController extends DashboardController
      */
     public function show(Comment $comment)
     {
-        return view('dashboard.comments.show', 
+        return view(
+            'dashboard.comments.show',
             compact('comment')
         );
     }
@@ -49,6 +50,4 @@ class CommentController extends DashboardController
 
         return redirect()->route('dashboard.comments.index');
     }
-
-
 }

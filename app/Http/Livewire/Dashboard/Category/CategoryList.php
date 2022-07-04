@@ -14,6 +14,7 @@ class CategoryList extends Component
     public function render()
     {
         $this->categories = Category::whereNull('parent_id')->with('childs')->get();
+
         return view('livewire.dashboard.category.category-list');
     }
 }
