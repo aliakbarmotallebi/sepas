@@ -43,14 +43,15 @@
                             :selected="$course->instructor_id"/>
 
                         <x-form.select label="واحد" name="unit" placeholder="واحد مبلغ پرداختی را انتخاب کنید" required :options="[
-                            'IRR' => 'IRR',
-                            'USD' => 'USD'
+                            'IRR' => 'ریال',
+                            'USD' => 'دلار'
                             ]"
                             :selected="$course->unit"/>
 
                         <x-form.select label="نوع دوره" name="type" placeholder="نوع دوره را انتخاب کنید" required :options="[
-                            'ONLINE' => 'ONLINE',
-                            'OFFLINE' => 'OFFLINE'
+                            'ONLINE' => 'انلاین',
+                            'OFFLINE'=> 'آفلاین',
+                            'BOTH'   => 'آنلاین و آفلاین'
                         ]"
                         :selected="$course->type"
                         />

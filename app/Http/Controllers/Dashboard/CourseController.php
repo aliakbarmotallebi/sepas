@@ -134,7 +134,7 @@ class CourseController extends DashboardController
             'requirements' => 'required',
             'instructor_id' => 'required|exists:users,id',
             'unit' => 'required|in:IRR,USD',
-            'type' => 'required|in:ONLINE,OFFLINE',
+            'type' => 'required|in:ONLINE,OFFLINE,BOTH',
             'image' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:1048',
         ]);
 

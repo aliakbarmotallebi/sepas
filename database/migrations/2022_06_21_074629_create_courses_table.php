@@ -67,6 +67,7 @@ return new class extends Migration {
             $table->enum('type', [
                     'ONLINE',
                     'OFFLINE',
+                    'BOTH'
                 ])->default('ONLINE');
 
             $table->enum('status', [

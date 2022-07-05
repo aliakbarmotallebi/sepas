@@ -1668,6 +1668,9 @@ body{
   --tw-bg-opacity: 1;
   background-color: rgb(29 78 216 / var(--tw-bg-opacity));
 }
+.bg-blue-100\/70{
+  background-color: rgb(219 234 254 / 0.7);
+}
 .bg-contain{
   background-size: contain;
 }
@@ -1974,6 +1977,14 @@ body{
 .text-red-700{
   --tw-text-opacity: 1;
   color: rgb(185 28 28 / var(--tw-text-opacity));
+}
+.text-blue-400{
+  --tw-text-opacity: 1;
+  color: rgb(96 165 250 / var(--tw-text-opacity));
+}
+.text-blue-600{
+  --tw-text-opacity: 1;
+  color: rgb(37 99 235 / var(--tw-text-opacity));
 }
 .underline{
   -webkit-text-decoration-line: underline;

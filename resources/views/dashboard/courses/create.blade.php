@@ -39,13 +39,14 @@
                         <x-form.select label="آموزشیار" name="instructor_id" placeholder="آموزشیار دوره را انتخاب کنید" required :options="$users->pluck('username', 'id')->toArray()"/>
 
                         <x-form.select label="واحد" name="unit" placeholder="واحد مبلغ پرداختی را انتخاب کنید" required :options="[
-                            'IRR' => 'IRR',
-                            'USD' => 'USD'
+                            'IRR' => 'ریال',
+                            'USD' => 'دلار'
                             ]"/>
 
                         <x-form.select label="نوع دوره" name="type" placeholder="نوع دوره را انتخاب کنید" required :options="[
-                            'ONLINE' => 'ONLINE',
-                            'OFFLINE' => 'OFFLINE'
+                            'ONLINE' => 'انلاین',
+                            'OFFLINE'=> 'آفلاین',
+                            'BOTH'   => 'آنلاین و آفلاین'
                         ]"/>
 
                         <x-form.file label="تصویر شاخص" name="image" required/>

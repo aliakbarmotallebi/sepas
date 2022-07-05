@@ -8,21 +8,6 @@
 
     <x-dashboard.box-report/>
 
-    <!-- Filters Section -->
-    <section>
-        <div class="bg-rose-100/70 mt-12  rounded-xl px-5 sm:px-10  pt-8 pb-4 relative bg-no-repeat bg-right bg-contain ">
-            <div class="text-rose-400 font-semibold text-lg">
-                اطلاعیه سایت
-            </div>
-
-            <div class="mt-5 text-gray-500 text-sm ">
-                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که
-            </div>
-        </div>
-
-    </section>
-    <!-- /Filters Section -->
-
     <div class="grid grid-cols-3 gap-3">
         <!-- Users Latest Table-->
         <x-dashboard.cart title="لیست آخرین کاربران">
