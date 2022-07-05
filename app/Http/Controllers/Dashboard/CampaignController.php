@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Campaign;
 use Illuminate\Http\Request;
 
-class PlanController extends Controller
+class CampaignController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +42,10 @@ class PlanController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Campaign  $campaign
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Campaign $campaign)
     {
         //
     }
@@ -52,10 +53,10 @@ class PlanController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Campaign  $campaign
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Campaign $campaign)
     {
         //
     }
@@ -64,10 +65,10 @@ class PlanController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Campaign  $campaign
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Campaign $campaign)
     {
         //
     }
@@ -75,10 +76,10 @@ class PlanController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Campaign  $campaign
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Campaign $campaign)
     {
         //
     }

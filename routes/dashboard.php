@@ -49,5 +49,9 @@ Route::group([
 
         Route::get('/products/uploads/{product}', 'PorductController@uploads')
             ->name('products.uploads');
+
+        Route::resource('/campaigns', 'CampaignController');
+
+        Route::resource('/events', 'EventController');
     });
 });

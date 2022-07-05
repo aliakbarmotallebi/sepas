@@ -1,14 +1,14 @@
 <!-- Sidebar -->
-<aside class="bg-white w-1/5 py-10 pr-10 min-w-min border-r border-indigo-900/20 hidden md:block ">
+<aside class="bg-white w-1/5 py-10 pr-5 min-w-min border-r border-indigo-900/20 hidden md:block ">
     <div class=" font-bold text-2xl">
-        وب سایت سپاس
+        <img class="w-11/12" src="{{ asset('LogoSepas.png') }}" alt="" srcset="">
     </div>
 
     <!-- Menu -->
-    <div class="mt-12 flex flex-col space-y-7 text-gray-500 font-medium">
+    <div class="mt-12 flex flex-col space-y-5 text-gray-500 font-medium">
 
 
-        <a href="{{ route('dashboard.index') }}" class="flex items-center space-x-2 py-1  group hover:border-l-2 hover:border-l-indigo-700 hover:font-semibold " href="#">
+        <a href="{{ route('dashboard.index') }}" class="hover:bg-gray-50 hover:rounded-r-md pr-2 pr-2 flex items-center space-x-2 py-1  group hover:border-l-2 hover:border-l-indigo-700 hover:font-semibold " href="#">
             <svg class="h-5 w-5 group-hover:stroke-indigo-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
 
@@ -17,7 +17,7 @@
                         داشبورد مدیریت
                     </span>
         </a>
-        <a href="{{ route('dashboard.courses.index') }}" class=" flex items-center space-x-2 py-1  group hover:border-l-2 hover:border-l-indigo-700 hover:font-semibold ">
+        <a href="{{ route('dashboard.courses.index') }}" class="hover:bg-gray-100 hover:rounded-r-md pr-2 pr-2  flex items-center space-x-2 py-1  group hover:border-l-2 hover:border-l-indigo-700 hover:font-semibold ">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-5 w-5 group-hover:stroke-indigo-700"
@@ -36,7 +36,7 @@
                 مدیریت دوره ها
             </span>
         </a>
-        <a href="{{ route('dashboard.comments.index') }}" class=" flex items-center space-x-2 py-1  group hover:border-l-2 hover:border-l-indigo-700 hover:font-semibold ">
+        <a href="{{ route('dashboard.comments.index') }}" class=" hover:bg-gray-100 hover:rounded-r-md pr-2 pr-2  flex items-center space-x-2 py-1  group hover:border-l-2 hover:border-l-indigo-700 hover:font-semibold ">
             <svg
                 viewBox="0 0 24 24"
                 class="h-5 w-5 group-hover:stroke-indigo-700"
@@ -56,7 +56,7 @@
                 مدیریت نظرات
             </span>
         </a>
-        <a href="{{ route('dashboard.users.index') }}" class=" flex items-center space-x-2 py-1  group hover:border-l-2 hover:border-l-indigo-700 hover:font-semibold">
+        <a href="{{ route('dashboard.users.index') }}" class="hover:bg-gray-100 hover:rounded-r-md pr-2 flex items-center space-x-2 py-1  group hover:border-l-2 hover:border-l-indigo-700 hover:font-semibold">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-5 w-5 group-hover:stroke-indigo-700"
@@ -76,7 +76,7 @@
                             مدیریت کاربران
                         </span>
         </a>
-        <a href="{{ route('dashboard.messages.index') }}" class=" flex items-center space-x-2 py-1  group hover:border-l-2 hover:border-l-indigo-700 hover:font-semibold ">
+        <a href="{{ route('dashboard.messages.index') }}" class=" hover:bg-gray-100 hover:rounded-r-md pr-2 flex items-center space-x-2 py-1  group hover:border-l-2 hover:border-l-indigo-700 hover:font-semibold ">
             <svg
                 class="h-5 w-5 group-hover:stroke-indigo-700"
                 xmlns="http://www.w3.org/2000/svg"
@@ -95,33 +95,45 @@
                 مدیریت پیام ها
             </span>
         </a>
-        <a href="{{ route('dashboard.products.index') }}" class="flex items-center space-x-2 py-1  group hover:border-l-2 hover:border-l-indigo-700 hover:font-semibold " href="#">
+        <a href="{{ route('dashboard.products.index') }}" class="hover:bg-gray-100 hover:rounded-r-md pr-2 flex items-center space-x-2 py-1  group hover:border-l-2 hover:border-l-indigo-700 hover:font-semibold " href="#">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:stroke-indigo-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-box"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
             <span class="pr-2">
                 مدیریت محصولات
             </span>
         </a>
-        <a href="{{ route('dashboard.orders.index') }}" class="flex items-center space-x-2 py-1  group hover:border-l-2 hover:border-l-indigo-700 hover:font-semibold " href="#">
+
+        <a href="{{ route('dashboard.campaigns.index') }}" class="hover:bg-gray-100 hover:rounded-r-md pr-2 flex items-center space-x-2 py-1  group hover:border-l-2 hover:border-l-indigo-700 hover:font-semibold " href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-share-2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+            <span class="pr-2">
+                مدیریت کامپین
+            </span>
+        </a>
+        <a href="{{ route('dashboard.events.index') }}" class="hover:bg-gray-100 hover:rounded-r-md pr-2 flex items-center space-x-2 py-1  group hover:border-l-2 hover:border-l-indigo-700 hover:font-semibold " href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>            <span class="pr-2">
+                مدیریت رویداد ها
+            </span>
+        </a>
+        <a href="{{ route('dashboard.orders.index') }}" class="hover:bg-gray-100 hover:rounded-r-md pr-2 flex items-center space-x-2 py-1  group hover:border-l-2 hover:border-l-indigo-700 hover:font-semibold " href="#">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:stroke-indigo-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
 
             <span class="pr-2">
                         مدیریت سفارشات
                     </span>
         </a>
-        <a href="{{ route('dashboard.payments.index') }}" class=" flex items-center space-x-2 py-1  group hover:border-l-2 hover:border-l-indigo-700 hover:font-semibold " href="#">
+        <a href="{{ route('dashboard.payments.index') }}" class=" hover:bg-gray-100 hover:rounded-r-md pr-2 flex items-center space-x-2 py-1  group hover:border-l-2 hover:border-l-indigo-700 hover:font-semibold " href="#">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-dollar-sign"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
             <span class="pr-2">
                 پرداختی ها
             </span>
         </a>
-        <a href="{{ route('dashboard.transactions.index') }}" class=" flex items-center space-x-2 py-1  group hover:border-l-2 hover:border-l-indigo-700 hover:font-semibold " href="#">
+        <a href="{{ route('dashboard.transactions.index') }}" class="hover:bg-gray-100 hover:rounded-r-md pr-2 flex items-center space-x-2 py-1  group hover:border-l-2 hover:border-l-indigo-700 hover:font-semibold " href="#">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-credit-card"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
             <span class="pr-2">
                 مدیریت تراکنش ها
             </span>
         </a>
 
-        <a href="{{ route('dashboard.categories.index') }}" class=" flex items-center space-x-2 py-1  group hover:border-l-2 hover:border-l-indigo-700 hover:font-semibold " href="#">
+        <a href="{{ route('dashboard.categories.index') }}" class="hover:bg-gray-100 hover:rounded-r-md pr-2 flex items-center space-x-2 py-1  group hover:border-l-2 hover:border-l-indigo-700 hover:font-semibold " href="#">
             <svg class="h-5 w-5 group-hover:stroke-indigo-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
             </svg>
@@ -129,7 +141,7 @@
                 مدیریت دسته بندی
             </span>
         </a>
-        <a class=" flex items-center space-x-2 py-1  group hover:border-l-2 hover:border-l-indigo-700 hover:font-semibold " href="#">
+        <a class="hover:bg-gray-100 hover:rounded-r-md pr-2 flex items-center space-x-2 py-1  group hover:border-l-2 hover:border-l-indigo-700 hover:font-semibold " href="#">
             <svg class="h-5 w-5 group-hover:stroke-indigo-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
 
