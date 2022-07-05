@@ -1,5 +1,5 @@
 <!-- Nav -->
-<nav class="text-lg flex items-center justify-between content-center ">
+<nav class="print:hidden text-lg flex items-center justify-between content-center ">
     <div class=" font-semibold text-xl text-gray-800 flex space-x-4 items-center">
         <a href="#">
             <span class="md:hidden">

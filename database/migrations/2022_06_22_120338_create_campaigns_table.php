@@ -29,13 +29,16 @@ return new class extends Migration {
             $table->string('total_price');
 
             $table->string('extra_price')
+                ->nullable()
                 ->default(0);
 
             $table->integer('comments_count')
-                ->defualt(0);
+                ->nullable()
+                ->default(0);
 
             $table->integer('sold_count')
-                ->defualt(0);
+                ->nullable()
+                ->default(0);
 
             $table->unsignedBigInteger('owner_id');
             $table->foreign('owner_id')

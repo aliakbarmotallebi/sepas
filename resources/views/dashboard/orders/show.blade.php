@@ -14,7 +14,7 @@
 
     <!-- Comments Table-->
     <x-dashboard.table  title="لیست محصولات سفارش" >
-        <div class="m-3 flex items-center">
+        <div class="print:mb-5 m-3 flex items-center">
 
             @if($orders->isUnpaid())
                 <button type="button" class="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-2 py-1 text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">
@@ -48,20 +48,20 @@
             <x-dashboard.table  title="مشخصات سفارش دهنده" >
                 <x-slot name="header">
                     <tr>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="font-semibold px-6 py-3">
                            نام و نام خانوادگی
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="font-semibold px-6 py-3">
                             آدرس محل سکونت
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="font-semibold px-6 py-3">
                             نام کاربری
                         </th>
                     </tr>
                 </x-slot>
                 <x-slot name="content">
 
-                        <tr class="bg-white border-b hover:bg-gray-100">
+                        <tr class="bg-white print:border-y border-b hover:bg-gray-100">
                             <th class="text-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                {{ $orders->owner->fullname }}
                             </th>
@@ -75,21 +75,22 @@
                     
                 </x-slot>
             </x-dashboard.table>
+
         </div>
 
         
         <x-slot name="header">
-            <tr>
-                <th scope="col" class="px-6 py-3">
+            <tr class="print:mt-4">
+                <th scope="col" class="font-semibold px-6 py-3">
                     نام محصول
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" class="font-semibold px-6 py-3">
                     قیمت واحد
                     <span class="text-gray-400 text-xs">
                         (تومان) 
                     </span>
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" class="font-semibold px-6 py-3">
                     عملیات
                 </th>
             </tr>
@@ -97,7 +98,7 @@
         <x-slot name="content">
             @if($orders->order_products->count() > 0 )
                 @foreach ($orders->order_products as $order)
-                    <tr class="bg-white border-b hover:bg-gray-100">
+                    <tr class="bg-white print:border-y border-b hover:bg-gray-100">
                         <th class="text-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                             {{ $order->product->title }}
                         </th>
@@ -105,14 +106,14 @@
                             {{ $order->price }}
                         </td>
                         <td class="px-6 py-4">
-                            <div class="flex justify-end text-center">
+                            <div class="print:hidden flex justify-end text-center">
                                 <livewire:delete :entity="$order" :url="request()->fullUrl()"/>
                             </div>
                         </td>
                     </tr>
                 @endforeach
                     <tr class="bg-gray-100">
-                        <th colspan="2"  class="px-6 py-3 text-left font-bold">
+                        <th colspan="2"  class="font-semibold px-6 py-3 text-left font-bold">
                             مبلغ قابل پرداخت
                             <span class="text-gray-400 text-xs">
                                 (تومان) 

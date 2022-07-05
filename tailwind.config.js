@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+        screens: {
+          'print': { 'raw': 'print' },
+        },
         fontFamily: {
             'iran': ['IRANSansX'],
         },

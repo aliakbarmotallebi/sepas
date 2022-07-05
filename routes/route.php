@@ -11,3 +11,11 @@ Route::group([
     Route::get('/logout', 'SecurityController@logout')
         ->name('logout');
 });
+
+
+if( env('APP_DEBUG') ) {
+    Route::get('/migrate', function(){
+        \Artisan::call('migrate');
+        return \Artisan::output();
+    });
+  }

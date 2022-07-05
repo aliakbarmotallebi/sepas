@@ -93,6 +93,11 @@ class User extends Authenticatable
         return $this->hasMany(Product::class, 'owner_id');
     }
 
+    public function campaigns()
+    {
+        return $this->hasMany(Campaign::class, 'owner_id');
+    }
+
     public function scopeInstructors($query)
     {
         return $query->whereRole(self::INSTRUCTOR_ROLE);

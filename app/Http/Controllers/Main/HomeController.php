@@ -9,11 +9,7 @@ class HomeController extends MainController
 {
     public function index(Request $request)
     {
-        return 'welcome home';
+        return view('main.index');
     }
 
-    public function upload(Request $request)
-    {
-        return $request->all();
-    }
 }

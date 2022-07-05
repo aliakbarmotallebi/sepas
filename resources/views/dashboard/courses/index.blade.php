@@ -23,7 +23,7 @@
                 @foreach ($courses as $course)
                 <div class="w-full flex flex-row border border-gray-200/80 bg-white p-4">
                     <div class="w-28 relative">
-                        <div class="absolute left-1 bottom-1 bg-gray-300/50 rounded-lg pl-2 pt-1">
+                        <div class="absolute left-2 bottom-2 bg-black/20 p-1 rounded-full">
                             <livewire:status :entity="$course" />
                         </div>
                         <img class="w-28 h-28 rounded-md object-cover" src="{{ $course->getImageUrl() }}"/>

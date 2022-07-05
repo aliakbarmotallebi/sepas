@@ -65,7 +65,10 @@ class UserController extends DashboardController
 
         $user = resolve($this->repository->model());
 
-        $inputs = $request->except(['_token']);
+        $inputs = $request->except([
+            '_token',
+            'password_confirmation'
+        ]);
 
         $user = $this->repository->forceFill(array_merge(
             $inputs,
