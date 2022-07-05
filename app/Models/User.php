@@ -98,6 +98,11 @@ class User extends Authenticatable
         return $this->hasMany(Campaign::class, 'owner_id');
     }
 
+    public function events()
+    {
+        return $this->hasMany(Event::class, 'owner_id');
+    }
+
     public function scopeInstructors($query)
     {
         return $query->whereRole(self::INSTRUCTOR_ROLE);

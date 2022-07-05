@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Event;
+use App\Traits\ImageUpload;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
+    use ImageUpload;
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +17,10 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
+        $events = Event::latest()->paginate(10);
+        return view('dashboard.events.index', 
+            compact('events')
+        );
     }
 
     /**
@@ -24,7 +30,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.events.create');
     }
 
     /**
@@ -35,18 +41,30 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $request->validate([
+            'title' => 'required|unique:events,title|max:255',
+            'description' => 'required',
+            'price' => 'required|numeric',
+            'schedule_at' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1048',
+        ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        $request->merge([
+            'image_url' => $this->uploadImage(
+                request()->file('image')
+            ),
+        ]);
+
+        $event = $request
+                ->user()
+                ->events()
+                ->create($request->all());
+
+        if ($event instanceof Event) {
+            alert()->success('با موفقیت ایجاد شد!');
+        }
+
+        return redirect()->route('dashboard.events.index');
     }
 
     /**
@@ -55,9 +73,11 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Event $event)
     {
-        //
+        return view('dashboard.events.edit', 
+            compact('event')
+        );
     }
 
     /**
@@ -67,19 +87,32 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Event $event)
     {
-        //
+        $request->validate([
+            'title' => 'required|unique:events,title|max:255',
+            'description' => 'required',
+            'price' => 'required|numeric',
+            'schedule_at' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1048',
+        ]);
+
+        if ($request->has('image')) {
+            $request->merge([
+                'image_url' => $this->uploadImage(
+                    request()->file('image')
+                ),
+            ]);
+        }
+
+        $event->update($request->all());
+
+        if ($event) {
+            alert()->success('با موفقیت ویرایش شد!');
+        }
+
+        return redirect()->route('dashboard.events.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+
 }
