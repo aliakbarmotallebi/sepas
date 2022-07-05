@@ -23,5 +23,6 @@
     <script src="{{ asset('javascripts/app.js') }}"></script>
     @include('sweetalert::alert')
     @livewireScripts
+    @yield('scripts')
 </body>
 </html>

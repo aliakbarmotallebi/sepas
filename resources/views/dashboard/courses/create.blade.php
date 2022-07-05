@@ -69,3 +69,11 @@
         <!-- /Courses Table-->
     </section>
 @endsection
+
+@section('scripts')
+    <script>
+            $(document).ready(function() {
+                $('.categories').select2();
+            });
+    </script>
+@endsection

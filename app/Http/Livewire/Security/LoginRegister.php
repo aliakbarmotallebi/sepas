@@ -2,10 +2,11 @@
 
 namespace App\Http\Livewire\Security;
 
-use App\Models\Country;
-use App\Models\User;
-use Livewire\Component;
+use captcha;
 use Validator;
+use App\Models\User;
+use App\Models\Country;
+use Livewire\Component;
 
 class LoginRegister extends Component
 {
@@ -28,6 +29,11 @@ class LoginRegister extends Component
      * @var
      */
     public $password;
+
+        /**
+     * @var
+     */
+    public $captcha;
 
     /**
      * @var array
@@ -121,6 +127,7 @@ class LoginRegister extends Component
         $this->validate([
             'username' => 'required',
             'password' => 'required',
+            'captcha' => 'required|captcha',
         ]);
 
         $user = array_merge(
@@ -148,25 +155,34 @@ class LoginRegister extends Component
     {
         $this->setRegisterForm(true);
 
-        $validator = Validator::make([
-            'mobile'                => 'required_if:country,IR|regex:/(09)[0-9]{9}/|digits:11|numeric|unique:users,mobile',
-            'email'                 => 'sometimes|required_unless:country,IR|email|unique:users,email',
+        $fields = [
             'password'              => 'required|min:6|required_with:password_confirmation|same:password_confirmation',
             'password_confirmation' => 'min:6',
-        ]);
+            'captcha'               => 'required|captcha',
+        ];
 
-        if ($validator->fails()) {
-            dd(request()->all());
-            dd($validator->getMessageBag());
+        if($this->country == 'IR'){
+            $field = ['mobile' => 'required|regex:/(09)[0-9]{9}/|digits:11|numeric|unique:users,mobile'];
+        }else{
+            $field = ['email' => 'required|email|unique:users,email'];
+
         }
 
+        $this->validate(array_merge(
+            $field,
+            $fields
+        ));
+
         User::create([
+           'username' => $this->email ?? $this->mobile,
            'email'    => $this->email,
            'mobile'   => $this->mobile,
            'password' => $this->password,
        ]);
 
         $this->resetInputFields();
+
+        $this->redirect(route('auth'));
     }
 
     /**

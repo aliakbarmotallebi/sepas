@@ -14,6 +14,8 @@ class VideoUpload extends Component
 
     public $em;
 
+    public $raw;
+
     protected $listeners = [
         'refresh' => '$refresh',
     ];

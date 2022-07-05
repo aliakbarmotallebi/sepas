@@ -2,6 +2,7 @@
 
 @tailwind base;
 @tailwind components;
+@import './dashboard/select2.css';
 @tailwind utilities;
 
 @layer base {

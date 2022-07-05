@@ -91,6 +91,25 @@
                         @enderror
                     </div>
 
+                    <div class="reg-form__field mb-5 px-2">
+                        <label class="font-semibold text-sm text-gray-600 pb-1 block mb-1">
+                            کد امنیتی
+                        </label>
+                        <img onclick="document.getElementById('captcha').src = 'captcha/flat?' + Math.random()" wire:ignore class="w-full rounded-md cursor-pointer" src="{{ captcha_src('flat') }}" alt="" id="captcha">
+                    </div>
+                    <div class="reg-form__field mb-5">
+                        <label class="font-semibold text-sm text-gray-600 pb-1 block mb-1">
+                            کد امنیتی را وارد کنید
+                            <span class="inline-flex bg-red-500 w-1 h-1 rounded-full"></span>
+                        </label>
+                        <input name="captcha"  wire:model="captcha" type="text" class="border @error('password') border-rose-400 @enderror rounded-lg px-3 py-2 text-sm w-full" />
+                        @error('captcha')
+                        <div class="text-rose-400 mt-2 text-xs">
+                            {{  $message  }}
+                        </div>
+                        @enderror
+                    </div>
+
                     <button wire:click="registerStore" type="button" class="flex justify-center items-center transition duration-200 bg-blue-500 hover:bg-blue-600 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block">
 
                         <svg
@@ -160,6 +179,24 @@
                         </label>
                         <input name="password"  wire:model="password" type="password" class="border @error('password') border-rose-400 @enderror rounded-lg px-3 py-2 text-sm w-full" />
                         @error('password')
+                        <div class="text-rose-400 mt-2 text-xs">
+                            {{  $message  }}
+                        </div>
+                        @enderror
+                    </div>
+                    <div class="reg-form__field mb-5 px-2">
+                        <label class="font-semibold text-sm text-gray-600 pb-1 block mb-1">
+                            کد امنیتی
+                        </label>
+                        <img onclick="document.getElementById('captcha').src = 'captcha/flat?' + Math.random()" wire:ignore class="w-full rounded-md cursor-pointer" src="{{ captcha_src('flat') }}" alt="" id="captcha">
+                    </div>
+                    <div class="reg-form__field mb-5">
+                        <label class="font-semibold text-sm text-gray-600 pb-1 block mb-1">
+                            کد امنیتی را وارد کنید
+                            <span class="inline-flex bg-red-500 w-1 h-1 rounded-full"></span>
+                        </label>
+                        <input name="captcha"  wire:model="captcha" type="text" class="border @error('password') border-rose-400 @enderror rounded-lg px-3 py-2 text-sm w-full" />
+                        @error('captcha')
                         <div class="text-rose-400 mt-2 text-xs">
                             {{  $message  }}
                         </div>

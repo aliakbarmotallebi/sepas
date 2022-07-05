@@ -190,6 +190,8 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
         willvincent\Rateable\RateableServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        Mews\Captcha\CaptchaServiceProvider::class,
+
 
         /*
          * Application Service Providers...
@@ -219,6 +221,8 @@ return [
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
         'Debugbar' => Barryvdh\Debugbar\Facades\Debugbar::class,
         'Image' => Intervention\Image\Facades\Image::class,
+        'Captcha' => Mews\Captcha\Facades\Captcha::class,
+
 
     ])->toArray(),
 

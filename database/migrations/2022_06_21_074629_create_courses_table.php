@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration {
     /**
@@ -42,6 +42,9 @@ return new class extends Migration {
                 ->default(0);
 
             $table->integer('sold_count')
+                ->default(0);
+            
+            $table->integer('visit_count')
                 ->default(0);
 
             $table->unsignedBigInteger('owner_id');

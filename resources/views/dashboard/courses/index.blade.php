@@ -74,7 +74,7 @@
                                         <circle cx="12" cy="12" r="3" />
                                         </svg>
                         
-                                    <span class="font-bold text-gray-600"> {{ $course->comments_count }}  </span>
+                                    <span class="font-bold text-gray-600"> {{ $course->visit_count }}  </span>
                                 </div>
                             </a>
                             <a href="#"

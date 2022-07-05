@@ -87,7 +87,7 @@
                         {{ $order->total_price }}
                     </td>
                     <td scope="row" class="px-6 py-4 text-center">
-                        {{ $order->products_order_count }}
+                        {{ $order->order_products_count }}
                     </td>
                     <td scope="row" class="px-6 py-4 text-center">
                         {{ $order->owner->username }}

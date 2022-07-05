@@ -9,7 +9,9 @@ use App\Models\Product;
 use App\Models\User;
 use App\Repositories\CourseRepository;
 use App\Traits\ImageUpload;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 /**
  * [Description CourseController].
@@ -155,12 +157,30 @@ class CourseController extends DashboardController
 
     public function uploadVideo(Request $request, Course $course)
     {
+        $request->validate([
+            'video' => 'required|file|mimes:avi,mp4',
+        ]);
 
-        dd($request);
-        // $request->validate([
-        //     'rawVideo' => 'sometimes|file|mimes:avi,mp4',
-        // ]);
+        $video = request()->file('video');
 
+        $date = new Carbon();
+        $imagePath = "/upload/videos/{$date->year}/{$date->month}/";
+
+        $name = md5(Str::random(25)).'.'.$video->getClientOriginalExtension();
+
+        $fullImageName = "{$imagePath}{$name}";
+
+        $video->move(public_path($imagePath), $name);
+
+
+        $course->video_url = $fullImageName;
+        $course->save();
+
+        if ($video) {
+            alert()->success('با موفقیت ویرایش شد!');
+        }
+
+        return redirect()->back();
 
     }
 

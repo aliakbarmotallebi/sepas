@@ -15,6 +15,13 @@ window.Alpine = Alpine;
 Alpine.start();
 
 
+import $ from 'jquery';
+window.$ = window.jQuery = $;
+
+
+require('select2');
+
+
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 

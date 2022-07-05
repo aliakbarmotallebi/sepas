@@ -56,9 +56,6 @@
                     عنوان
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    توضیحات
-                </th>
-                <th scope="col" class="px-6 py-3">
                     قیمت
                     <span class="text-gray-400 text-xs">
                         (تومان) 
@@ -81,15 +78,12 @@
         <x-slot name="content">
             @foreach ($products as $product)
                 <tr class="bg-white border-b hover:bg-gray-100">
-                    <td scope="row" class="w-28">
+                    <td scope="row" class="w-28 p-2">
                        <img class="mr-2 w-24 h-24 rounded-lg object-cover" src="{{ $product->getImageUrl() }}">
                     </td>
                     <th class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                         {{ $product->title }}
                     </th>
-                    <td scope="row" class="px-6 py-4">
-                        {{ $product->body }}
-                    </td>
                     <td scope="row" class="px-6 py-4">
                         {{ $product->price }}
                     </td>

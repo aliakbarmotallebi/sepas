@@ -13,7 +13,7 @@ class AdminController extends DashboardController
     public function __invoke()
     {
         $users = User::take(7)->latest()->get();
-        $products = Product::take(3)->latest()->get();
+        $products = Product::take(4)->latest()->get();
         $orders = Order::withCount('order_products')->take(5)->latest()->get();
 
         return view('dashboard.index',

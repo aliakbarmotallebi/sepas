@@ -12,7 +12,7 @@
         route="{{ route('dashboard.courses.index') }}"/>
 
         <!-- Courses Table-->
-        <x-dashboard.cart title="ویرایش دوره" >
+        <x-dashboard.cart title="ویرایش دوره">
             <x-slot name="header"></x-slot>
             <x-slot name="content">
                 <form action="{{ route('dashboard.courses.update', $course) }}" method="post" enctype="multipart/form-data">
@@ -27,7 +27,7 @@
                             <x-form.input label="قیمت ریال" name="price" :value="$course->getRawOriginal('price')" required/>
 
                             <x-form.select label="دسته بندی" name="category_id" :value="$course->title" placeholder="دسته بندی خودرا انتخاب کنید" required :options="$categories->pluck('label', 'id')->toArray()"
-                                />                        
+                                :selected="$course->categories->category_id??null" />                        
                         </div>
     
                         <div class="mt-1 col-span-2">
