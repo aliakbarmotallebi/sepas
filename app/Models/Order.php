@@ -11,9 +11,14 @@ class Order extends Model
 {
     use HasFactory, Status, Jalali;
 
-    public function getTotalPriceAttribute($value)
+    // public function getTotalPriceAttribute($value)
+    // {
+    //     return number_format($value) ?? 0;
+    // }
+
+    public function getTotalPrice()
     {
-        return number_format($value) ?? 0;
+        return number_format($this->total_price) ?? 0;
     }
 
     public function owner()
