@@ -13,7 +13,11 @@ Route::group([
         'prefix'     => 'panel',
         'as'         => 'panel.',
     ], function () {
-        Route::get('/profile', 'ProfileController@index')
-            ->name('profile.index');
+        Route::get('/', 'ProfileController@index')
+            ->name('index');
+
+        Route::get('/profile', 'ProfileController@profileEdit')
+            ->name('profile.edit');
+
     });
 });

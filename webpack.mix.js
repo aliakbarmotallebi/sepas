@@ -17,5 +17,7 @@ mix.js("resources/js/app.js", "public/javascripts")
     ])
     .postCss("resources/css/security/styles.css", "public/styles/security/", [
         require("tailwindcss"),
+    ]).postCss("resources/css/user/styles.css", "public/styles/user/", [
+        require("tailwindcss"),
     ])
     .copyDirectory('resources/fonts', 'public/fonts')
