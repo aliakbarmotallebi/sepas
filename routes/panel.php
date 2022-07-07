@@ -19,5 +19,23 @@ Route::group([
         Route::get('/profile', 'ProfileController@profileEdit')
             ->name('profile.edit');
 
+        Route::get('/courses', 'ProfileController@courses')
+            ->name('courses');
+        
+        Route::get('/transactions', 'ProfileController@transactions')
+            ->name('transactions');
+
+        Route::get('/comments', 'ProfileController@comments')
+            ->name('comments');
+
+        Route::get('/campaigns', 'ProfileController@campaigns')
+            ->name('campaigns');
+
+        Route::get('/orders', 'ProfileController@orders')
+            ->name('orders.index');
+        
+        Route::get('/orders/{order}', 'ProfileController@order')
+            ->name('orders.show');
+
     });
 });

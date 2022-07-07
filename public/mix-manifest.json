@@ -1,5 +1,6 @@
 {
     "/javascripts/app.js": "/javascripts/app.js",
+    "/styles/user/styles.css": "/styles/user/styles.css",
     "/styles/security/styles.css": "/styles/security/styles.css",
     "/styles/dashboard/styles.css": "/styles/dashboard/styles.css",
     "/fonts/IRANSansX-Bold.woff": "/fonts/IRANSansX-Bold.woff",

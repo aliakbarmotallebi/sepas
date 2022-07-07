@@ -33261,6 +33261,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/css/user/styles.css":
+/*!***************************************!*\
+  !*** ./resources/css/user/styles.css ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./node_modules/process/browser.js":
 /*!*****************************************!*\
   !*** ./node_modules/process/browser.js ***!
@@ -39791,6 +39804,7 @@ S2.define('jquery.select2',[
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/javascripts/app": 0,
+/******/ 			"styles/user/styles": 0,
 /******/ 			"styles/security/styles": 0,
 /******/ 			"styles/dashboard/styles": 0
 /******/ 		};
@@ -39842,9 +39856,10 @@ S2.define('jquery.select2',[
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["styles/security/styles","styles/dashboard/styles"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["styles/security/styles","styles/dashboard/styles"], () => (__webpack_require__("./resources/css/dashboard/styles.css")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["styles/security/styles","styles/dashboard/styles"], () => (__webpack_require__("./resources/css/security/styles.css")))
+/******/ 	__webpack_require__.O(undefined, ["styles/user/styles","styles/security/styles","styles/dashboard/styles"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["styles/user/styles","styles/security/styles","styles/dashboard/styles"], () => (__webpack_require__("./resources/css/dashboard/styles.css")))
+/******/ 	__webpack_require__.O(undefined, ["styles/user/styles","styles/security/styles","styles/dashboard/styles"], () => (__webpack_require__("./resources/css/security/styles.css")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["styles/user/styles","styles/security/styles","styles/dashboard/styles"], () => (__webpack_require__("./resources/css/user/styles.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

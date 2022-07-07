@@ -103,6 +103,26 @@ class User extends Authenticatable
         return $this->hasMany(Event::class, 'owner_id');
     }
 
+    public function orders()
+    {
+        return $this->hasMany(Order::class, 'owner_id');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class,  'owner_id');
+    }
+
+    public function tags()
+    {
+        return $this->morphToMany(Tag::class, 'taggable');
+    }
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class, 'owner_id');
+    }
+
     public function scopeInstructors($query)
     {
         return $query->whereRole(self::INSTRUCTOR_ROLE);

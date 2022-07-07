@@ -138,12 +138,10 @@ class LoginRegister extends Component
         if (auth()->attempt($user)) {
             if (auth()->user()->hasAdmin()) {
                 $this->redirect(route('dashboard.index'));
+                return true;
             }
 
-            return true;
-
-            $this->redirect(route('panel.profile.index'));
-
+            $this->redirect(route('panel.index'));
             return true;
         }
 
