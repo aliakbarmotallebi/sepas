@@ -18,7 +18,7 @@
 
       <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-            <tr>
+            <tr class="border border-gray-200">
                 <th scope="col" class="text-right px-2 py-1">
                   نام کمپین
                 </th>
@@ -38,7 +38,7 @@
         </thead>
         <tbody>
             @foreach ($campaigns as $campaign)
-              <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+              <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 last:border-b-0">
                   <td class="text-right px-2 py-1 font-medium text-blue-400 dark:text-white whitespace-nowrap">
                      <a href="{{  $campaign->transactable->slug }}">
                         {{ $campaign->transactable->title }}

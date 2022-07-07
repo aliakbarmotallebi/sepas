@@ -19,6 +19,9 @@ Route::group([
         Route::get('/profile', 'ProfileController@profileEdit')
             ->name('profile.edit');
 
+        Route::put('/profile', 'ProfileController@profileUpdate')
+            ->name('profile.update');
+
         Route::get('/courses', 'ProfileController@courses')
             ->name('courses');
         

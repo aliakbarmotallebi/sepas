@@ -18,7 +18,7 @@
 
       <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-            <tr>
+            <tr class="border border-gray-200">
                 <th scope="col" class="text-right px-6 py-3">
                   شماره	سفارش
                 </th>
@@ -36,7 +36,7 @@
         </thead>
         <tbody>
             @foreach ($orders as $order)
-              <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+              <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 last:border-b-0">
                   <th class="w-[20px] text-right px-2 py-1 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                      {{ $order->order_no }}
                   </th>

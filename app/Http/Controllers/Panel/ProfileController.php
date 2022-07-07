@@ -43,6 +43,45 @@ class ProfileController extends PanelController
         );
     }
 
+    public function profileUpdate(Request $request)
+    {
+        $this->validate($request, [
+            'fullname' => 'required',
+            'old_password' => 'required',
+            'password' => 'nullable|min:6|required_with:password_confirmation|same:password_confirmation',
+            'password_confirmation' => 'nullable|min:6'
+        ]);
+
+        $data = [
+            'fullname' => $request->get('fullname'),
+            'address'  => $request->get('address'),
+            'bio'      => $request->get('bio'),
+        ];
+
+        if(! \Hash::check(
+                $request->get('old_password'),
+                $request->user()->password
+            )){
+
+            alert()->error('گذرواژه جاری اشتباه می باشد');
+
+            return redirect()->back();
+       }
+
+       if( $request->filled('password') ){
+            $data = array_merge(
+                ['password' => $request->get('password') ],
+                $data
+            );
+       }
+       
+        $request->user()->update($data);
+
+        alert()->success('با موفقیت ویرایش شد!');
+
+        return redirect()->back();
+    }
+
     public function courses(Request $request)
     {
         $courses =  Transaction::where([
