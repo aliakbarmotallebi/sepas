@@ -35,6 +35,7 @@
         <x-slot name="content">
             <div class="grid grid-cols-1 pb-3">
                 @livewire('dashboard.category.category-list')
+                @livewire('dashboard.category.category-form')
             </div>
         </x-slot>
     </x-dashboard.cart>
