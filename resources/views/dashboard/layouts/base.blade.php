@@ -20,8 +20,9 @@
             </div>
         </main>
     </div>
-    <script src="{{ asset('javascripts/app.js') }}"></script>
+    <script src="{{ asset('javascripts/app.js') }}" defer></script>
     @include('sweetalert::alert')
+    @livewire('dashboard.category.category-form')
     @livewireScripts
     @yield('scripts')
 </body>

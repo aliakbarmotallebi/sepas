@@ -1,6 +1,7 @@
 
 <div class="grid grid-cols-6 gap-3 p-4">
 
+
     @foreach ($images as $image)
         <div class="transition-all duration-500 ease-in-out">
             <div class="rounded-md bg-gray-500 h-80 shadow-lg bg-cover bg-center relative overflow-hidden before:w-full before:h-full before:top-0 before:right-0 before:absolute before:z-10 before:bg-gradient-to-b before:from-transparent before:to-black/50"

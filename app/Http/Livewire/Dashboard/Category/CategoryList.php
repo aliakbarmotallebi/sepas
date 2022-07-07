@@ -11,6 +11,12 @@ class CategoryList extends Component
 
     protected $listeners = ['refreshCategoriesList' => '$refresh'];
 
+    public function remove(Category $category)
+    {
+        $category->delete();
+        $this->emit('refreshCategoriesList');
+    }
+
     public function render()
     {
         $this->categories = Category::whereNull('parent_id')->with('childs')->get();

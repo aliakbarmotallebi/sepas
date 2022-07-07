@@ -19,5 +19,9 @@ mix.js("resources/js/app.js", "public/javascripts")
         require("tailwindcss"),
     ]).postCss("resources/css/user/styles.css", "public/styles/user/", [
         require("tailwindcss"),
-    ])
+    ]).webpackConfig({
+        stats: {
+            children: true,
+        }
+    })
     .copyDirectory('resources/fonts', 'public/fonts')

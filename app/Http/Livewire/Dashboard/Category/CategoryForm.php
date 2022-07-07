@@ -2,10 +2,11 @@
 
 namespace App\Http\Livewire\Dashboard\Category;
 
+use App\Http\Livewire\Modal;
 use App\Models\Category;
 use Livewire\Component;
 
-class CategoryForm extends Component
+class CategoryForm extends Modal
 {
     public $label;
 
@@ -13,27 +14,26 @@ class CategoryForm extends Component
 
     public $categories;
 
-    public $isOpenModal = false;
+    public $isSuccess = false;
+
+    public $temp;
 
     protected $rules = [
         'label'=>'required|unique:categories,label',
         'category_id'=>'sometimes',
     ];
 
-    protected $listeners = [
-        'openModal' => 'isOpenModal',
-    ];
-
-    public function isOpenModal()
-    {
-        // dd($this->isOpenModal);
-        $this->isOpenModal = ! $this->isOpenModal;
-    }
-
     private function resetInput()
     {
         $this->label = null;
         $this->category_id = null;
+    }
+
+    public function updatingLabel()
+    {
+        $this->isSuccess = false;
+        $this->temp = null;
+
     }
 
     public function store()
@@ -45,7 +45,14 @@ class CategoryForm extends Component
             'parent_id' => $this->category_id,
         ]);
 
-        return redirect()->to('/dashboard/categories');
+        $this->isSuccess = true;
+    
+        $this->temp = $this->label;
+    
+        $this->resetInput();
+
+        $this->emit('refreshCategoriesList');
+    
     }
 
     public function render()

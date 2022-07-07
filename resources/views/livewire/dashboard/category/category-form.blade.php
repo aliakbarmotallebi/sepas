@@ -1,10 +1,18 @@
 
-<x-modal title="ذخیره دسته بندی" isVisible="{{ $isOpenModal }}">
+<x-modal title="ذخیره دسته بندی" wire:model="show">
 
-    <div>
-        {{ $isOpenModal }}
-    </div>
     <div class="col-span-1">
+
+        @if($isSuccess)
+        <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
+            دسته بندی 
+            <span class="font-medium">
+                {{ $temp }}
+            </span>
+            با موفقیت ایجاد شد
+        </div>
+        @endif
+
         <form>
             <div>
                 <div>
@@ -43,7 +51,9 @@
                     <button wire:click.prevent="store()" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ml-1">
                         ذخیره دسته بندی
                     </button>
-                    <button  type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">
+                    <button  type="button" 
+                        wire:click="show()"
+                        class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">
                         انصراف
                     </button>
                 </div>
@@ -53,4 +63,3 @@
 
     <x-slot name="footer"></x-slot>
 </x-modal>
-    
