@@ -17,7 +17,7 @@
     </div>
 
     <div class="flex space-x-5 md:space-x-10 text-gray-500 items-center content-center text-base ">
-        <a  class="flex items-center space-x-3 px-3 py-2 rounded border border-gray-400 ml-2" href="#">
+        <button  x-data="{}" x-on:click="window.livewire.emitTo('dashboard.edit-profile', 'show')" class="flex items-center space-x-3 px-3 py-2 rounded border border-gray-400 ml-2" href="#">
             <span>
                 <svg class="h-5 w-5 mr-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
@@ -30,9 +30,9 @@
                 </svg>
             </span>{{--  --}}
             <span class="hidden sm:block text-sm pr-2">
-                تنظیمات
+                ویرایش پروفایل
             </span>
-        </a>
+        </button>
         <a href="{{ route('logout') }}"
             class="px-3 py-2 border border-rose-400 rounded flex items-center space-x-2 text-indigo-500 hover:bg-indigo-200"
             href="#">

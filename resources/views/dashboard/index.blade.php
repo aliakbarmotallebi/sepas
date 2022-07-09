@@ -231,4 +231,6 @@
         @endforeach
     </div>
 
+    @livewire('dashboard.edit-profile')
+
 @endsection
