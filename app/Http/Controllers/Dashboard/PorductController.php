@@ -18,9 +18,17 @@ class PorductController extends DashboardController
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(ProductRepository $repository)
+    public function index(Request $request, ProductRepository $repository)
     {
-        $products = $repository->all();
+        $products = Product::query();
+
+        if ( $request->has('q') ){
+            $products =  $products        
+                            ->where('title', 'LIKE', "%{$request->get('q')}%")
+                            ->orWhere('body', 'LIKE', "%{$request->get('q')}%");
+        }
+
+        $products = $products->latest()->paginate(15);
 
         return view(
             $this->theme.'products.index',

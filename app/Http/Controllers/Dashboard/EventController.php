@@ -15,9 +15,19 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $events = Event::latest()->paginate(10);
+
+        $events = Event::query();
+
+        if ( $request->has('q') ){
+            $events =  $events        
+                            ->where('title', 'LIKE', "%{$request->get('q')}%")
+                            ->orWhere('body', 'LIKE', "%{$request->get('q')}%");
+        }
+
+        $events = $events->latest()->paginate(15);
+
         return view('dashboard.events.index', 
             compact('events')
         );

@@ -15,9 +15,18 @@ class CampaignController extends DashboardController
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $campaigns = Campaign::latest()->paginate(10);
+
+        $campaigns = Campaign::query();
+
+        if ( $request->has('q') ){
+            $campaigns =  $campaigns        
+                            ->where('title', 'LIKE', "%{$request->get('q')}%");
+        }
+
+        $campaigns = $campaigns->latest()->paginate(15);
+
         return view('dashboard.campaigns.index', 
             compact('campaigns')
         );

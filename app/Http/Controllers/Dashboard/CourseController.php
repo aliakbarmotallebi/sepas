@@ -35,9 +35,18 @@ class CourseController extends DashboardController
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $courses = $this->courseRepository->paginate(4);
+
+        $courses = Course::query();
+
+        if ( $request->has('q') ){
+            $courses =  $courses        
+                            ->where('title', 'LIKE', "%{$request->get('q')}%")
+                            ->orWhere('body', 'LIKE', "%{$request->get('q')}%");
+        }
+
+        $courses = $courses->latest()->paginate(15);
 
         return view($this->theme.'courses.index', compact('courses'));
     }
