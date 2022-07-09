@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.base')
 
 @section('title')
-    {{ __('Dashboard User Edit') }}
+    ویرایش کاربر
 @endsection
 
 @section('content')

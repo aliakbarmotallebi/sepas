@@ -1219,6 +1219,9 @@ body{
 .grid{
   display: grid;
 }
+.contents{
+  display: contents;
+}
 .list-item{
   display: list-item;
 }
@@ -1421,6 +1424,9 @@ body{
 }
 .cursor-default{
   cursor: default;
+}
+.resize{
+  resize: both;
 }
 .appearance-none{
   -webkit-appearance: none;
@@ -2058,6 +2064,9 @@ body{
 }
 .uppercase{
   text-transform: uppercase;
+}
+.italic{
+  font-style: italic;
 }
 .leading-7{
   line-height: 1.75rem;

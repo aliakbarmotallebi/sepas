@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.base')
 
 @section('title')
-    {{ __('Dashboard Users')  }}
+    مدیریت کاربران
 @endsection
 
 @section('content')

@@ -8,8 +8,13 @@
 
     <link rel="stylesheet" href="{{ asset('styles/dashboard/styles.css') }}">
 
-    <title>@yield('title')</title>
+    <title>پنل ادمین -  @yield('title')</title>
     @livewireStyles
+    <style>
+        [x-cloak] { 
+            display: none !important;
+         }
+      </style>
 </head>
 <body>
     <div class="flex min-h-screen mx-auto border-x-2 border-indigo-50">
@@ -21,10 +26,17 @@
         </main>
     </div>
     <script src="{{ asset('javascripts/app.js') }}" defer></script>
+    <script src="{{ asset('javascripts/ckeditor4/ckeditor.js') }}" defer></script>
+
     @include('sweetalert::alert')
 
     @livewireScripts
     @livewire('dashboard.edit-profile')
     @yield('scripts')
+    <script type="text/javascript">
+        window.onload = function () {
+            CKEDITOR.replace( 'editor' );
+        };
+    </script>
 </body>
 </html>

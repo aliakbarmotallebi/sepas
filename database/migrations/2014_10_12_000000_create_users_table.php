@@ -25,6 +25,8 @@ return new class extends Migration {
                 ->nullable();
             $table->text('address')
                 ->nullable();
+            $table->string('wallet_balance')
+                ->default(0);
             $table->string('password');
             $table->enum('role', [
                 'ADMIN',

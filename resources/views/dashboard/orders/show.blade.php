@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.base')
 
 @section('title')
-    {{ __('Dashboard Products Order')  }}
+    محصولات سفارش داده شده
 @endsection
 
 @section('content')

@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.base')
 
 @section('title')
-    {{ __('Dashboard User record') }}
+    ایجاد کاربر جدید
 @endsection
 
 @section('content')

@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.base')
 
 @section('title')
-    مدیریت محصولات ها
+    بارگذاری عکس محصولات ها
 @endsection
 
 @section('content')

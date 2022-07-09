@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.base')
 
 @section('title')
-    Dashboard
+    صفحه اصلی 
 @endsection
 
 @section('content')

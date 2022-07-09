@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.base')
 
 @section('title')
-    {{ __('Dashboard Messages')  }}
+    پیام های تماس با ما
 @endsection
 
 @section('content')

@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.base')
 
 @section('title')
-    {{ __('Dashboard Transactions')  }}
+    مدیریت تراکنش ها
 @endsection
 
 @section('content')

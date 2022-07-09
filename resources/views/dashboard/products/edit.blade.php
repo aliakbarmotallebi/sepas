@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.base')
 
 @section('title')
-    مدیری محصولات
+    ویرایش محصولات
 @endsection
 
 @section('content')

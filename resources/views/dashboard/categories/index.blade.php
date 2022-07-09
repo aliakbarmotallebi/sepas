@@ -2,7 +2,7 @@
 @extends('dashboard.layouts.base')
 
 @section('title')
-    {{ __('Dashboard Category')  }}
+    دسته بندی
 @endsection
 
 @section('content')

@@ -35,9 +35,6 @@ return new class extends Migration {
             $table->longText('requirements')
                 ->nullable();
 
-            $table->string('wallet_balance')
-                ->default(0);
-
             $table->integer('comments_count')
                 ->default(0);
 

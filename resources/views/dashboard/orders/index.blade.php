@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.base')
 
 @section('title')
-    {{ __('Dashboard Orders')  }}
+    مدیریت سفارشات
 @endsection
 
 @section('content')

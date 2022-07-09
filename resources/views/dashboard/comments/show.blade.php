@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.base')
 
 @section('title')
-    {{ __('Dashboard Reply comment')  }}
+    پاسخ به نظرات کاربران
 @endsection
 
 @section('content')
