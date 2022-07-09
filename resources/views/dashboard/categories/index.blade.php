@@ -36,7 +36,7 @@
             <div class="grid grid-cols-1 pb-3">
                 @livewire('dashboard.category.category-list')
                 @livewire('dashboard.category.category-form')
-            </div>
+                @livewire('dashboard.category.category-edit')
         </x-slot>
     </x-dashboard.cart>
 @endsection
