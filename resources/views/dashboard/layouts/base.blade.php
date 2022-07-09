@@ -24,6 +24,7 @@
     @include('sweetalert::alert')
 
     @livewireScripts
+    @livewire('dashboard.edit-profile')
     @yield('scripts')
 </body>
 </html>
