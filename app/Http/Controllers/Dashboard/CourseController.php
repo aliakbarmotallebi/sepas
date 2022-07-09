@@ -76,11 +76,13 @@ class CourseController extends DashboardController
      */
     public function store(Request $request)
     {
+
         $request->validate([
             'title' => 'required|unique:courses|max:255',
             'description' => 'required',
             'price' => 'required|numeric',
-            'category_id' => 'required|numeric',
+            'category_id' => 'required|array',
+            "category_id.*"  => "required|numeric",
             'topics' => 'required',
             'requirements' => 'required',
             'instructor_id' => 'required|exists:users,id',
@@ -99,6 +101,10 @@ class CourseController extends DashboardController
                 ->user()
                 ->courses()
                 ->create($request->all());
+
+        $course->categories()->attach(
+            array_filter( $request->get('category_id') )
+        );
 
         if ($course instanceof Course) {
             alert()->success('با موفقیت ایجاد شد!');
@@ -134,11 +140,13 @@ class CourseController extends DashboardController
      */
     public function update(Request $request, Course $course)
     {
+        // dd($request->all());
         $request->validate([
             'title' => 'required|max:255',
             'description' => 'required',
             'price' => 'required|numeric',
-            'category_id' => 'required|numeric',
+            'category_id' => 'sometimes|array',
+            "category_id.*"  => "sometimes|numeric",
             'topics' => 'required',
             'requirements' => 'required',
             'instructor_id' => 'required|exists:users,id',
@@ -155,8 +163,14 @@ class CourseController extends DashboardController
             ]);
         }
 
-        $course = $course->update($request->all());
+        if ($request->has('category_id')) {
+            $course->categories()->sync(
+                array_filter( $request->get('category_id') )
+            );
+        }
 
+        $course = $course->update($request->all());
+ 
         if ($course) {
             alert()->success('با موفقیت ویرایش شد!');
         }

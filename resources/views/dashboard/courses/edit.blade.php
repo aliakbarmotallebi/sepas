@@ -26,8 +26,8 @@
 
                             <x-form.input label="قیمت ریال" name="price" :value="$course->getRawOriginal('price')" required/>
 
-                            <x-form.select label="دسته بندی" name="category_id" :value="$course->title" placeholder="دسته بندی خودرا انتخاب کنید" required :options="$categories->pluck('label', 'id')->toArray()"
-                                :selected="$course->categories->category_id??null" />                        
+                            <x-form.select select2 label="دسته بندی" name="category_id[]" :value="$course->title" placeholder="دسته بندی خودرا انتخاب کنید" required :options="$categories->pluck('label', 'id')->toArray()"
+                                :selected="$course->categories->pluck('id')->toArray()" />                        
                         </div>
     
                         <div class="mt-1 col-span-2">

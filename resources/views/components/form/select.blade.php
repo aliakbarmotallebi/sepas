@@ -9,16 +9,27 @@
             name="{{ $name }}"
             @if($readonly)
             disabled readonly
-            @endif>
+            @endif
+            @if($select2)
+                id="select2"
+                multiple
+            @endif
+            >
 
             @if( $placeholder )
-            <option selected> 
+            <option value=""> 
                 {{$placeholder}}
             </option>
             @endif
             @foreach($options as $value => $label)
             <option value="{{$value}}" 
-            {{ $selected == $value ? 'selected' : NULL}}
+            @if (is_array($selected))
+
+                {{ in_array($value, $selected) ? 'selected' : NULL }}
+            @else 
+                {{ $selected == $value ? 'selected' : NULL}}   
+            @endif
+
             >
                 {{$label}}
             </option>

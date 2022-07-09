@@ -53,7 +53,7 @@ class Course extends Model
 
     public function categories()
     {
-        return $this->morphOne(Categorizable::class, 'categorizable');
+        return $this->morphToMany(Category::class, 'categorizable');
     }
 
     public function setDescriptionAttribute($value)

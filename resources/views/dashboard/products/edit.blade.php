@@ -28,8 +28,8 @@
 
                             <x-form.input label="قیمت ریال" name="price" :value="$product->getRawOriginal('price')" required/>
 
-                            <x-form.select label="دسته بندی" name="category_id" :value="$product->title" placeholder="دسته بندی خودرا انتخاب کنید" required :options="$categories->pluck('label', 'id')->toArray()"
-                                />                        
+                            <x-form.select select2 label="دسته بندی" name="category_id[]" :value="$product->title" placeholder="دسته بندی خودرا انتخاب کنید" required :options="$categories->pluck('label', 'id')->toArray()"
+                                :selected="$product->categories->pluck('id')->toArray()" />                        
                         </div>
     
                         <div class="mt-1 col-span-2">

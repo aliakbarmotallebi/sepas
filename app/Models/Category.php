@@ -33,4 +33,8 @@ class Category extends Model
     {
         return $this->hasMany(self::class, 'parent_id', 'id');
     }
+
+    public function categorizable() {
+        return $this->morphTo();
+    }
 }

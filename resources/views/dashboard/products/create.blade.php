@@ -27,7 +27,7 @@
 
                             <x-form.input label="قیمت ریال" name="price" required/>
 
-                            <x-form.select label="دسته بندی" name="category_id"  placeholder="دسته بندی خودرا انتخاب کنید" required :options="$categories->pluck('label', 'id')->toArray()"
+                            <x-form.select select2 label="دسته بندی" name="category_id"  placeholder="دسته بندی خودرا انتخاب کنید" required :options="$categories->pluck('label', 'id')->toArray()"
                                 />                        
                         </div>
     

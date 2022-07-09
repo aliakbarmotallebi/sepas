@@ -36,6 +36,7 @@
     <script type="text/javascript">
         window.onload = function () {
             CKEDITOR.replace( 'editor' );
+            $('#select2').select2();
         };
     </script>
 </body>

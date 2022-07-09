@@ -30,7 +30,6 @@ return new class extends Migration {
             $table->id();
             $table->unsignedBigInteger('category_id');
             $table->morphs('categorizable');
-            $table->timestamps();
 
             $table->unique([
                  'category_id',

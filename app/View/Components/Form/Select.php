@@ -20,7 +20,9 @@ class Select extends Component
 
     public array $options = [];
 
-    public $selected;
+    public $selected = [];
+
+    public $select2 = false;
 
     /**
      * Create a new component instance.
@@ -35,7 +37,8 @@ class Select extends Component
         $required = false,
         $readonly = false,
         $options = [],
-        $selected = null
+        $selected = [],
+        $select2 = false
     ) {
         $this->label = $label;
 
@@ -52,6 +55,8 @@ class Select extends Component
         $this->options = $options;
 
         $this->selected = $selected;
+
+        $this->select2 = $select2;
     }
 
     /**

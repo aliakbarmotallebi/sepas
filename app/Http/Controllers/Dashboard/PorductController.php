@@ -65,7 +65,8 @@ class PorductController extends DashboardController
             'title' => 'required|unique:products,title|max:255',
             'description' => 'required',
             'price' => 'required|numeric',
-            'category_id' => 'required|numeric',
+            'category_id' => 'required|array',
+            "category_id.*"  => "required|numeric",
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1048',
         ]);
 
@@ -79,6 +80,11 @@ class PorductController extends DashboardController
                 ->user()
                 ->products()
                 ->create($request->all());
+
+        $product->categories()->attach(
+            array_filter( $request->get('category_id') )
+        );
+
 
         if ($product instanceof Product) {
             alert()->success('با موفقیت ایجاد شد!');
@@ -118,7 +124,8 @@ class PorductController extends DashboardController
             'title' => 'required|max:255',
             'description' => 'required',
             'price' => 'required|numeric',
-            'category_id' => 'required|numeric',
+            'category_id' => 'sometimes|array',
+            "category_id.*"  => "sometimes|numeric",
             'image' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:1048',
         ]);
 
@@ -131,6 +138,12 @@ class PorductController extends DashboardController
         }
 
         $saved = $product->update($request->all());
+
+        if ($request->has('category_id')) {
+            $product->categories()->sync(
+                array_filter( $request->get('category_id') )
+            );
+        }
 
         if ($saved) {
             alert()->success('با موفقیت ویرایش شد!');
