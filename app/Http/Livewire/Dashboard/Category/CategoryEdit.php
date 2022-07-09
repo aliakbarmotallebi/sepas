@@ -50,7 +50,7 @@ class CategoryEdit extends Modal
     public function update($old_cat)
     {
         $this->validate();
-        //
+        
         $category = Category::findOrFail($old_cat);
         $category->label = $this->label;
         $category->parent_id = $this->category_id;
