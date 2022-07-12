@@ -10,7 +10,7 @@ use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Log;
 
-class NotificationWithSms extends Notification
+class Notify extends Notification
 {
     use Queueable;
 
@@ -69,7 +69,6 @@ class NotificationWithSms extends Notification
                 ->greeting( $greeting, $notifiable->fullname )
                 ->subject('Notification Subject')
                 ->line( $message );
-                \Log::debug(json_encode($r));
     }
 
     /**
