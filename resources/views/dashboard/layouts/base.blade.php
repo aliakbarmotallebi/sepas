@@ -35,7 +35,10 @@
     @yield('scripts')
     <script type="text/javascript">
         window.onload = function () {
-            CKEDITOR.replace( 'editor' );
+            CKEDITOR.replace( 'editor',{
+                filebrowserUploadUrl: "{{route('dashboard.upload', ['_token' => csrf_token() ])}}",
+                filebrowserUploadMethod: 'form'
+            });
             $('#select2').select2();
         };
     </script>

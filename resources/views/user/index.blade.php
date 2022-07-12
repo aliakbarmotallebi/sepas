@@ -23,8 +23,17 @@
                         </span>
                     </div>
                 </div>
+
                 <div class="w-full text-center mt-20 mb-4">
-                    <div class="flex justify-center lg:pt-4 pt-8 pb-0">
+                    <div class="flex items-center justify-center flex-col gap-2 lg:pt-4 pt-8 pb-0">
+                        <button
+                            class="border border-blue-400 hover:border-blue-700  text-blue-600 hover:text-blue-900 text-xs py-1 px-7 rounded focus:shadow-outline ">
+                            <svg class="w-4 h-4 inline-flex ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-credit-card"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                            {{ $user->getWalletBalance() }}
+                            <span class="mr-1 text-xs">
+                                تومان 
+                            </span>
+                        </button>
                         <a href="{{ route('panel.profile.edit') }}"
                             class="border border-blue-400 hover:border-blue-700  text-blue-600 hover:text-blue-900 text-xs py-1 px-7 rounded focus:shadow-outline ">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 inline-flex ml-2" viewBox="0 0 24 24"

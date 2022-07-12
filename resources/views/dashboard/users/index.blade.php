@@ -83,6 +83,12 @@
                     نام و نام خانوادگی
                 </th>
                 <th scope="col" class="px-6 py-3">
+                    کیف پول
+                    <span class="text-gray-400 text-xs">
+                        (تومان) 
+                    </span>
+                </th>
+                <th scope="col" class="px-6 py-3">
                    نقش کاربر
                 </th>
                 <th scope="col" class="px-6 py-3">
@@ -104,6 +110,9 @@
                     </td>
                     <td scope="row" class="px-6 py-4 text-center">
                         {{ $user->fullname }}
+                    </td>
+                    <td scope="row" class="px-6 py-4 text-center">
+                        {{ $user->getWalletBalance() }}
                     </td>
                     <td scope="row" class="px-6 py-4 text-center">
                         {{ $user->getRoleName() }}
