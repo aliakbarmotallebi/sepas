@@ -214,4 +214,12 @@ class CourseController extends DashboardController
             compact('course')
         );
     }
+
+    public function questions(Course $course)
+    {
+        return view(
+            $this->theme.'courses.questions',
+            compact('course')
+        );
+    }
 }

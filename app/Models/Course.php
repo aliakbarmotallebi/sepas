@@ -91,6 +91,11 @@ class Course extends Model
         return $this->morphMany(Image::class, 'imageable');
     }
 
+    public function questionnaires()
+    {
+        return $this->hasMany(Questionnaire::class, 'course_id');
+    }
+
     /**
      * Get all of the post's comments.
      */

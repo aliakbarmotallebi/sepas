@@ -134,4 +134,19 @@ class User extends Authenticatable
 
         return [$field => $login];
     }
+
+    public function hasEmail()
+    {
+        return filter_var($this->email, FILTER_VALIDATE_EMAIL);
+    }
+
+    public function hasMobile()
+    {
+        return !$this->hasEmail();
+    }
+
+    public function routeNotificationForMail($notification)
+    {
+        return $this->email;
+    }
 }

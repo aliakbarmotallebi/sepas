@@ -15,9 +15,10 @@ return new class extends Migration {
         Schema::create('questionnaires', function (Blueprint $table) {
             $table->id();
 
-            $table->string('label');
+            $table->longText('label');
 
-            $table->longText('question');
+            $table->longText('question')
+                ->nullable();
 
             $table->unsignedBigInteger('course_id');
             $table->foreign('course_id')
@@ -26,7 +27,7 @@ return new class extends Migration {
                     ->onDelete('cascade');
 
             $table->enum('type', [
-                    'RADIO',
+                    'CHOICE',
                     'TEXT',
                 ])->default('TEXT');
 
