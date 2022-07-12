@@ -1,4 +1,4 @@
-<div class="mt-2 px-3">
+    <div class="mt-2 px-3">
     @if (session()->has('message'))
         <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800">
         {{ session('message') }}
@@ -53,7 +53,7 @@
                 </div>
                 <div>
                     <label for="label" class="@error('label.0') text-red-700 @enderror block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                        سوال
+                        تیتر سوال
                         <span class="inline-flex bg-red-500 w-1 h-1 rounded-full"></span>
                     </label>
                     <input type="text" id="label" wire:model="label.0" class="@error('label.0') bg-red-50 border-red-500 text-red-900 disabled:cursor-not-allowed placeholder-red-700 focus:ring-red-500 focus:border-red-500  @enderror bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
@@ -62,6 +62,12 @@
                             {{ $message }}
                         </p>
                     @enderror
+                </div>
+                <div>
+                    <label for="question" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                        سوال
+                    </label>
+                    <input type="text" id="question" wire:model="question.0" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                 </div>
                 <div class="self-end justify-self-start">
                     <button class="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded text-sm p-3 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" wire:click.prevent="add({{$counter}})">
@@ -92,7 +98,7 @@
                 </div>
                 <div>
                     <label for="label" class="@error('label.') text-red-700 @enderror block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                        سوال
+                        تیتر سوال
                         <span class="inline-flex bg-red-500 w-1 h-1 rounded-full"></span>
                     </label>
                     <input type="text" id="label" wire:model="label.{{$value}}" class="@error('label') bg-red-50 border-red-500 text-red-900 disabled:cursor-not-allowed placeholder-red-700 focus:ring-red-500 focus:border-red-500  @enderror bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
@@ -101,6 +107,12 @@
                             {{ $message }}
                         </p>
                     @enderror
+                </div>
+                <div>
+                    <label for="question" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                        سوال
+                    </label>
+                    <input type="text" id="question" wire:model="question.{{$value}}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                 </div>
                 <div class="self-end justify-self-start">
                     <button class="text-white bg-gray-200 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded text-sm p-3 text-center inline-flex items-center dark:bg-gray-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" wire:click.prevent="remove({{$key}})">
@@ -115,5 +127,48 @@
                 </button>
             </div>
         </form>
+    </div>
+</div>
+
+<div class="flex justify-center mb-6">
+    <div class="w-1/2 ">
+        <x-dashboard.table  title="لیست سوالات" >
+                
+            <x-slot name="header">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        نوع سوال
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        تیتر سوال
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        سوال انتخابی
+                    </th>
+                    <th scope="col" class="px-6 py-3"></th>
+                </tr>
+            </x-slot>
+            <x-slot name="content">
+                @foreach ($questions as $question)
+                    <tr class="bg-white border-b hover:bg-gray-100">
+                        <th class="px-6 py-4 text-center font-medium text-gray-900 whitespace-nowrap">
+                            {{ $question->type }}
+                        </th>
+                        <th class="px-6 py-4 text-center font-medium text-gray-900 whitespace-nowrap">
+                            {{ $question->label }}
+                        </th>
+                        <th class="px-6 py-4 text-center font-medium text-gray-900 whitespace-nowrap">
+                            {{ $question->question }}
+                        </th>
+                        <td class="px-6 py-4 text-center">
+                            <div class="flex text-center justify-end">
+                                <livewire:delete :entity="$question" :url="request()->fullUrl()"/>
+                            </div>
+                        </td>
+                    </tr>
+                @endforeach
+            </x-slot>
+
+        </x-dashboard.table>
     </div>
 </div>

@@ -12,6 +12,10 @@ class Question extends Component
 
     public $type;
 
+    public $question;
+
+    public $questions;
+
     public $rows = [];
 
     public $counter = 1;
@@ -40,12 +44,15 @@ class Question extends Component
     private function resetInputFields(){
         $this->label = '';
         $this->type = '';
+        $this->question = '';
     }
 
 
     public function store()
     {
         $this->validate([
+            'label' => 'required',
+            'type' => 'required',
             'label.0' => 'required',
             'type.0' => 'required',
             'label.*' => 'required',
@@ -61,7 +68,8 @@ class Question extends Component
         foreach ($this->label as $key => $value) {
             $this->course->questionnaires()->create([ 
                 'label' => $this->label[$key], 
-                'type'  => $this->type[$key]
+                'type'  => $this->type[$key] ?? 'TEXT',
+                'question' => $this->question[$key] ?? NULL,
             ]);
         }
 
@@ -75,6 +83,7 @@ class Question extends Component
 
     public function render()
     {
+        $this->questions = Questionnaire::get();
         return view('livewire.dashboard.course.question');
     }
 }
