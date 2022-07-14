@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 Route::group([
     'namespace' => 'Security',
 ], function () {

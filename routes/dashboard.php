@@ -32,6 +32,15 @@ Route::group([
         Route::get('/courses/uploads/{course}', 'CourseController@uploads')
             ->name('courses.uploads');
 
+        Route::get('/courses/users/{course}', 'CourseController@users')
+            ->name('courses.users');
+
+        Route::get('/assessments/course/{course}/user/{user}', 'AssessmentController@show')
+            ->name('assessments.show');
+        
+        Route::post('/assessments/course/{course}/user/{user}', 'AssessmentController@store')
+            ->name('assessments.store');
+
         Route::get('/courses/questions/{course}', 'CourseController@questions')
             ->name('courses.questions');
 

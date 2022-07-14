@@ -222,4 +222,20 @@ class CourseController extends DashboardController
             compact('course')
         );
     }
+
+
+    public function users(Course $course)
+    {
+        $users = User::whereHas('transactions', function($q) 
+                use($course){
+            $q->completed();
+            $q->courses();
+            $q->whereTransactableId($course->id);
+        })->get();
+
+        return view(
+            $this->theme . 'courses.users', 
+            compact('users', 'course')
+        );
+    }
 }

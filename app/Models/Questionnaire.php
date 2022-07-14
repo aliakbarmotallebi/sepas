@@ -14,4 +14,10 @@ class Questionnaire extends Model
         'question',
         'type'
     ];
+
+    public function course()
+    {
+        return $this->belongsTo(Course::class);
+    }
+    
 }

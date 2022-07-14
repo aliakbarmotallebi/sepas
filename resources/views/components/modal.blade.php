@@ -8,7 +8,7 @@
         x-cloak
         x-on:keydown.escape.window="show = false"
         class="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full  justify-center items-center flex bg-gray-900/40">
-        <div x-show="show" class="relative p-4 w-full max-w-md h-full md:h-auto">
+        <div x-show="show" class="relative p-4 w-full max-w-lg h-full md:h-auto">
             <!-- Modal content -->
             <div x-show="show" class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                 <!-- Modal header -->

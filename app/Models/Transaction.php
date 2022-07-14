@@ -49,6 +49,16 @@ class Transaction extends Model
         return self::STATUS_NAME[$this->status] ?? null;
     }
 
+    public function scopeCompleted($query)
+    {
+        return $query->whereStatus(self::COMPLETED_STATUS);
+    }
+
+    public function scopeCourses($query)
+    {
+        return $query->whereTransactableType(Course::class);
+    }
+
     public function getAmountAttribute($value)
     {
         return number_format($value) ?? 0;
