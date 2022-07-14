@@ -62,7 +62,7 @@
                                                 {{ $assessment->getCreatedAt() }}
                                             </p>
                                         </div>
-                                        <span class="flex items-center bg-gray-100 px-2 py-1 mx-1 rounded text-xs font-medium text-gray-700">
+                                        <span class="flex items-center bg-gray-100 px-3 py-1 mx-1 rounded-full text-xs font-medium text-gray-700">
                                             {{ $assessment->fellow->fullname }}
                                         </span>
                                         <livewire:delete :entity="$assessment" :url="request()->fullUrl()"/>
