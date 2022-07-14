@@ -48,7 +48,7 @@
                 </svg>
                 <div class="text-center mt-1 text-xs">
                     درحال بارگذاری
-                </div>
+                </div>    
             </div>
             <input type="file"
                 class="w-full h-full top-0 left-0 absolute opacity-0 cursor-pointer"

@@ -5,8 +5,14 @@
 @endsection
 
 @section('content')
-    <div class="grid grid-cols-2 gap-2 mt-5">
 
+    <section class="mt-4">
+        <x-form.breadcrumb 
+            label="برگشت به صفحه قبل" 
+            route="{{ route('dashboard.courses.users', $course) }}"/>
+    </section>
+
+    <div class="grid grid-cols-2 gap-2 mt-1">
         <x-dashboard.table  title="پاسخ سوالات دوره" >
             <x-slot name="header">
                 <tr>

@@ -150,4 +150,9 @@ class User extends Authenticatable
     {
         return $this->email;
     }
+
+    public function scopeFellowUsers($query)
+    {
+        return $query->whereRole('FELLOW');
+    }
 }

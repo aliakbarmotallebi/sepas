@@ -230,12 +230,12 @@ class CourseController extends DashboardController
                 use($course){
             $q->completed();
             $q->courses();
-            $q->whereTransactableId($course->id);
+            $q->whereTransactableId($course->id);  
         })->get();
 
         return view(
             $this->theme . 'courses.users', 
-            compact('users', 'course')
+            compact('course', 'users')
         );
     }
 }
